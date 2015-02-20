@@ -59,15 +59,18 @@ Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
 ####String
 Strings are UTF-8 encoded binaries. They are enclosed in double quotes(`"`).<br>
 They can span multiple lines and contain interpolations.<br>
-Interpolations are enclosed in `#{}` and can contain any expression.
+Interpolations are enclosed in `#{}` and can contain any expression.<br>
+Strings, being binaries, are concatenated with `<>`.
 
 ```elixir
 > "This is a string."
 > "This is an #{ Atom.to_string(:interpolated) } string."
+> "Where is " <> "my other half?"
 > "multi\nline" == "multi
 line"                                    # true
 > <<69,108,105,120,105,114>> == "Elixir" # true
-> String.length("🎩")            # 1
-> byte_size("🎩")                # 4
-> is_binary("any string")        # true
-> String.printable?("こんにちは") # true
+> String.length("🎩")               # 1
+> byte_size("🎩")                   # 4
+> is_binary("any string")           # true
+> String.valid?("こんにちは")        # true
+> String.valid?("hello" <> <<255>>) # false
