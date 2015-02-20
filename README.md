@@ -1,9 +1,9 @@
-#Elixir Cheat Sheet
+#Elixir Quick Reference
 A quick reference for the Elixir programming Language and standard library.<br>
 Elixir Website: http://elixir-lang.org/<br>
 Elixir Documentation: http://elixir-lang.org/docs.html<br>
 Elixir Source: https://github.com/elixir-lang/elixir<br>
-This Cheet Sheet: https://github.com/itsgreggreg/elixir_cheet_sheet<br>
+This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
 ###Basic Types
 ####Integer
