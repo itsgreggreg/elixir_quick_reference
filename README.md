@@ -22,9 +22,10 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
  ```
 
 ###**Float**
-64bit double precision. Can be specified with an exponent. Must have a leading `0`.
+64bit double precision. Can be specified with an exponent. Must have a number, cannot begin with `.`.
  - `1.2345`
  - `0.01` or `1.0e-2`
 ```(elixir)
-> 0.001 == 1.0e-2 #true
+> 0.001 == 1.0e-2 # true
+> .001            # syntax error
 ```
