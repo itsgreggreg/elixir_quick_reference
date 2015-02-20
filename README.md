@@ -40,3 +40,12 @@ Must begin with: `A-Z`, `a-z` or `_`.<br>
 > :"Üñîçødé and Spaces"
 > :123                  # syntax error
 ```
+
+####Boolean
+ `true` and `false` are just syntactic sugar for `:true` and `:false` and not a special type.
+```elixir
+> true  == :true     # true
+> false == :false    # true
+> is_boolean(:true)  # true
+> is_atom(false)     # true
+> is_boolean(:True)  # false!
