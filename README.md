@@ -58,12 +58,15 @@ Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
 
 ####Binary
 A binary is a sequence of bytes enclosed in `<< >>` and separated with `,`.<br>
-By default each number is 8 bits though size can be specified with `::size(n)`, `::n`, or `::utf8`.<br>
+By default each number is 8 bits though size can be specified with `::size(n)`, `::n`, 
+`::utf8`, `::utf16`, `::utf32` or `::float`<br>
 If the number of bits in a binary is not divisible by 8, it is considered a bitstring.<br>
 Binaries are concatenated with `<>`.
 ```elixir
 > <<0,1,2,3>>
 > <<100>> == <<100::size(8)>>        # true
+> <<4::float>> == <<64, 16, 0, 0, 0, 0, 0, 0>>  # true
+> <<65::utf32>> == <<0, 0, 0, 65>>   # true
 > <<0::2, 1::2>> == <<1::4>>         # true
 > <<1,2>> <> <<3,4>> == <<1,2,3,4>>  # true
 > is_binary(<<1,2,3,4>>)             # true
