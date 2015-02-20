@@ -56,6 +56,21 @@ Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
 > is_boolean(:True)  # false!
 ```
 
+####Binary
+A binary is a sequence of bytes enclosed in `<< >>` and separated with `,`.<br>
+By default each number is 8 bits though size can be specified with `::size(n)`, `::n`, or `::utf8`.<br>
+If the number of bits in a binary is not divisible by 8, it is considered a bitstring.<br>
+Binaries are concatenated with `<>`.
+```elixir
+> <<0,1,2,3>>
+> <<100>> == <<100::size(8)>>        # true
+> <<0::2, 1::2>> == <<1::4>>         # true
+> <<1,2>> <> <<3,4>> == <<1,2,3,4>>  # true
+> is_binary(<<1,2,3,4>>)             # true
+> is_binary(<<1::size(4)>>)          # false!, num of bits not devisible by 8
+> is_bitstring(<<1::size(4)>>)       # true
+```
+
 ####String
 Strings are UTF-8 encoded binaries. They are enclosed in double quotes(`"`).<br>
 They can span multiple lines and contain interpolations.<br>
