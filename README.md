@@ -26,7 +26,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 ```elixir
 > 1.2345
 > 0.001 == 1.0e-3 # true
-> .001            # syntax error
+> .001            # syntax error!
 ```
 
 ####Atom
@@ -34,7 +34,7 @@ Constants whose name is their value. Stored in a global table once used.<br>
 Can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. Can end with `!`.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
-Must begin with: `A-Z`, `a-z` or `_` except single `:!` and `:@`.<br>
+Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
 
 ```elixir
 > :something
@@ -42,7 +42,7 @@ Must begin with: `A-Z`, `a-z` or `_` except single `:!` and `:@`.<br>
 > :Some@Thing@12345
 > :"Üñîçødé and Spaces"
 > Atom.to_string(:Yay!)  # "Yay!"
-> :123                   # syntax error
+> :123                   # syntax error!
 ```
 
 ####Boolean
