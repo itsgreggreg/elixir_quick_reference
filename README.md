@@ -19,7 +19,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
  > Integer.to_string(0xcafe) == "51996"    # true
  ```
 
-###Float
+####Float
 64bit double precision. Can be specified with an exponent. Cannot begin or end with `.`.
 ```elixir
 > 1.2345
@@ -27,7 +27,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 > .001            # syntax error
 ```
 
-###Atom
+####Atom
 Constants whose name is their value. Stored in a global table once used.<br>
 Can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
