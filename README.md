@@ -5,7 +5,7 @@ Elixir Documentation: http://elixir-lang.org/docs.html
 Elixir Source: https://github.com/elixir-lang/elixir  
 This Cheet Sheet: https://github.com/itsgreggreg/elixir_cheet_sheet  
 
-###Primitives
+###Basic Types
 ####**Integer**
 Can be specified in base 10, hex, or binary. All are stored as base 10.
 
@@ -22,10 +22,23 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
  ```
 
 ###**Float**
-64bit double precision. Can be specified with an exponent. Must have a number, cannot begin with `.`.
+64bit double precision. Can be specified with an exponent. Cannot begin with `.`.
  - `1.2345`
  - `0.01` or `1.0e-2`
 ```(elixir)
 > 0.001 == 1.0e-2 # true
 > .001            # syntax error
+```
+
+###Atom
+Constants whose name is their value. Stored in a global table once used.<br>
+Can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. To use other characters you must quote the atom.<br>
+TODO: Note which characters can be used when quoted.<br>
+Must begin with: `A-Z`, `a-z` or `_`.<br>
+```(elixir)
+> :something
+> :_some_thing
+> :Some@Thing@12345
+> :"Üñîçødé and Spaces"
+> :123                  # syntax error
 ```
