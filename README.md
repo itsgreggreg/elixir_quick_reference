@@ -9,9 +9,9 @@ This Cheet Sheet: https://github.com/itsgreggreg/elixir_cheet_sheet
 ####**Integer**
 Can be specified in base 10, hex, or binary. All are stored as base 10.
 
- - base 10: `1234567` *-or-* `1_234_567`
- - hex: `0xcafe` *-or-* `0xCAFE`
- - binary: `0b10101`
+ - `1234567` *-or-* `1_234_567`
+ - `0xcafe` *-or-* `0xCAFE`
+ - `0b10101`
 
 
  ```(elixir)
@@ -20,3 +20,11 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
  > Integer.to_string(51_966, 16) == "CAFE" # true
  > Integer.to_string(0xcafe) == "51996"    # true
  ```
+
+###**Float**
+64bit double precision. Can be specified with an exponent. Must have a leading `0`.
+ - `1.2345`
+ - `0.01` or `1.0e-2`
+```(elixir)
+> 0.001 == 1.0e-2 #true
+```
