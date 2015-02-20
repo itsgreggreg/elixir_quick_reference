@@ -9,8 +9,8 @@ This Cheet Sheet: https://github.com/itsgreggreg/elixir_cheet_sheet
 ####**Integer**
 Can be specified in base 10, hex, or binary. All are stored as base 10.
 
- - `1234567` *-or-* `1_234_567`
- - `0xcafe` *-or-* `0xCAFE`
+ - `1234567` or `1_234_567`
+ - `0xcafe` or `0xCAFE`
  - `0b10101`
 
 
