@@ -72,5 +72,7 @@ line"                                    # true
 > String.length("🎩")               # 1
 > byte_size("🎩")                   # 4
 > is_binary("any string")           # true
-> String.valid?("こんにちは")        # true
-> String.valid?("hello" <> <<255>>) # false
+> String.valid?("こんにちは")         # true
+> String.valid?("hello" <> <<255>>) # false!
+> String.valid?(<<4>>)              # true
+> String.printable?(<<4>>)          # false! 4 is a valid UTF-8 codepoint, but is not printable.
