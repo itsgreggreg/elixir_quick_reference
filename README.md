@@ -94,3 +94,23 @@ line"                                    # true
 > String.valid?("hello" <> <<255>>) # false!
 > String.valid?(<<4>>)              # true
 > String.printable?(<<4>>)          # false! 4 is a valid UTF-8 codepoint, but is not printable.
+```
+
+###Collection Types
+
+####Lists
+Simple linked lists can be of any size and can have values of any type.<br>
+They are enclosed in `[ ]` and values are comma separated.<br>
+Concatenated with `++` and subtracted with `--`.<br>
+Can be constructed with the cons operator `|`.<br>
+Best for sequential access, fastest when values are added and suptracted from the head.<br>
+Instead of building a list by adding to it's tail, add to the head and reverse the list.
+
+```elixir
+> [1, 2, 3.4, "a", "b", :c, [:d]]
+> [ 1 | [2 | [3]]] == [1, 2, 3]   # true
+> [1, 2, 3.4] ++ ["a", "b", :c]   # [1, 2, 3.4, "a", "b", :c]
+> [1, 2, 3.4, "a", "b", :c, [:d]] -- [2, "a", "c"]  # [1, 3.4, "b", :c, [:d]]
+> hd [1, 2, 3]  # 1
+> tl [1, 2, 3]  # [2, 3]
+
