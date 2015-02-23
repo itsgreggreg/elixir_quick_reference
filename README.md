@@ -99,23 +99,38 @@ line"                                    # true
 ###Collection Types
 
 ####List
-Simple linked lists can be of any size and can have values of any type.<br>
-They are enclosed in `[ ]` and values are comma separated.<br>
+Simple linked lists that can be of any size and can have elements of any type.<br>
+They are enclosed in `[ ]` and elements are comma separated.<br>
 Concatenated with `++` and subtracted with `--`.<br>
 Can be constructed with the cons operator `|`.<br>
-Best for sequential access, fastest when values are added and subtracted from the head.<br>
-Instead of building a list by adding to it's tail, add to the head and reverse the list.
+Best for sequential access, fastest when elements are added and subtracted from the head.<br>
+Instead of building a list by adding to its tail, add to the head and reverse the list.
 
 ```elixir
 > [1, 2, 3.4, "a", "b", :c, [:d]]
 > [ 1 | [2 | [3]]] == [1, 2, 3]   # true
 > [1, 2, 3.4] ++ ["a", "b", :c]   # [1, 2, 3.4, "a", "b", :c]
 > [1, 2, 3.4, "a", "b", :c, [:d]] -- [2, "a", "c"]  # [1, 3.4, "b", :c, [:d]]
-> hd [1, 2, 3]  # 1
-> tl [1, 2, 3]  # [2, 3]
+> hd [1, 2, 3]              # 1
+> tl [1, 2, 3]              # [2, 3]
+> length [:a, :b, :c, :d]   # 4
+> Enum.reverse [:a, :b, :c] # [:c, :b, :a]
 ```
 
 #### Tuple
+Can be of any size and have elements of any type.<br>
+Elements are stored contiguously in memory.<br>
+Enclosed in `{ }` and elements are comma separated.<br>
+Fast for index-based access, slow for a large number of elements.<br>
+
+```elixir
+> { :a, 1, {:b}, [2]}
+> put_elem({:a}, 0, :b) # {:b}
+> elem({:a, :b, :c}, 1) # b
+> Tuple.delete_at({:a, :b, :c}, 1) # {:a, :c}
+> Tuple.insert_at({:a, :c}, 1, :b) # {:a, :b, :c}
+> Tuple.to_list({:a, :b, :c})      # [:a, :b, :c]
+```
 
 #### Keyword List
 
