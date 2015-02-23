@@ -23,7 +23,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 ####Float
 64bit double precision. Can be specified with an exponent. Cannot begin or end with `.`.
 
-```elixir
+```elixira
 > 1.2345
 > 0.001 == 1.0e-3 # true
 > .001            # syntax error!
@@ -137,7 +137,7 @@ Fast for index-based access, slow for a large number of elements.<br>
 A `List` of 2 element `Tuples` whose first element is an `Atom`.<br>
 They have a special syntactic variant where each `Tuple`s `{ }` are ommitted and the key `Atom` has it's colon on the right side.<br>
 Since they are just `List`s they guarantee order as specified, can have multiple elements with the same key and are fastest when accessed at the head.<br>
-Elements can be accesset with `[:key]` notation. The first Element with a matching `:key` will be returned.<br>
+Elements can be accessed with `[:key]` notation. The first Element with a matching `:key` will be returned.<br>
 Since they are lists they are concatenated with `++` and subtracted with `--`.<br>
 Keyword Lists are only equal if all elements are equal and in the same order.
 
