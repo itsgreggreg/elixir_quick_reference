@@ -103,7 +103,7 @@ Simple linked lists can be of any size and can have values of any type.<br>
 They are enclosed in `[ ]` and values are comma separated.<br>
 Concatenated with `++` and subtracted with `--`.<br>
 Can be constructed with the cons operator `|`.<br>
-Best for sequential access, fastest when values are added and suptracted from the head.<br>
+Best for sequential access, fastest when values are added and subtracted from the head.<br>
 Instead of building a list by adding to it's tail, add to the head and reverse the list.
 
 ```elixir
