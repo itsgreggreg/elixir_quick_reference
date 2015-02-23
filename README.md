@@ -98,7 +98,7 @@ line"                                    # true
 
 ###Collection Types
 
-####Lists
+####List
 Simple linked lists can be of any size and can have values of any type.<br>
 They are enclosed in `[ ]` and values are comma separated.<br>
 Concatenated with `++` and subtracted with `--`.<br>
@@ -113,4 +113,16 @@ Instead of building a list by adding to it's tail, add to the head and reverse t
 > [1, 2, 3.4, "a", "b", :c, [:d]] -- [2, "a", "c"]  # [1, 3.4, "b", :c, [:d]]
 > hd [1, 2, 3]  # 1
 > tl [1, 2, 3]  # [2, 3]
+```
 
+#### Tuple
+
+#### Keyword List
+
+#### Map
+
+#### Struct
+
+#### HashDict
+
+#### Regular Expression
