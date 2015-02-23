@@ -153,6 +153,29 @@ Keyword Lists are only equal if all elements are equal and in the same order.
 ```
 
 #### Map
+Key - Value store where Keys and Values are of any type.<br>
+Cannot have multiple values for the same key and are unordered.<br>
+`Map`s are enclosed in `%{ }`, elements are comma seperated, and elemets have the form: key `=>` value.<br>
+If all keys are `Atom`s, the `=>` can be omitted and the `Atom`'s `:` must be on the right.<br>
+Values are accessed with `[key]` notation.<br>
+Maps can be accessed with `.key` notation if key is an `Atom`.<br>
+Maps can be updated by enclosing them in `%{}` and using the cons `|` operator.<br>
+Maps can be of any size and are fastest for key based lookup.
+
+```elixir
+> %{:a => 1, 1 => ["list"], [2,3,4] => {"a", "b"}}
+> %{:a => 1, :b => 2} == %{a: 1, b: 2}              # true
+> %{a: "one", b: "two", a: 1} == %{a: 1, b: "two"}  # true
+> %{a: "one", b: "two"} == %{b: "two", a: "one"}    # ture
+> %{a: "one", b: "two"}[:b]                         # "two"
+> %{a: "one", b: "two"}.b                           # "two"
+> %{a: "one", a: 1} == %{a: 1}                      # true
+> %{:a => "one", "a" => "two"}."a" == "two"         # false! watchout
+> Map.keys( %{a: 1, b: 2} ) == [:a, :b]             # true
+> %{ %{a: 1, b: 2, c: 3} | :a => 4, b: 5 }          # %{a: 4, b: 5, c: 3}
+> Map.merge( %{a: 1, b: 2}, %{a: 4, c: 3} )         # %{a: 4, b: 2, c: 3}
+```
+
 
 #### Struct
 
