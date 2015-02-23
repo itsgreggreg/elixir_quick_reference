@@ -97,6 +97,20 @@ line"                                    # true
 > String.printable?(<<4>>)          # false! 4 is a valid UTF-8 codepoint, but is not printable.
 ```
 
+#### Regular Expression
+Inherited from Erlang's `re` module and are Perl compatible.<br>
+Written literally with the `~r` `Sigil` and can span multiple lines.<br>
+Can have a number of modifiers specified directly after the pattern.<br>
+Many functions take a captures option that limits captures.
+
+```elixir
+> Regex.compile!("caf[eé]") == ~r/caf[eé]/ # true
+> Regex.match?(~r/caf[eé]/, "café")        # true
+> Regex.regex?(~r"caf[eé]")                # true
+> Regex.regex?("caf[eé]")                  # false! string not compiled regex
+> Regex.run(~r/hat: (.*)/, "hat: 🎩", [capture: :all_but_first]) == ["🎩"]  # true
+```
+
 ###Collection Types
 
 ####List
@@ -176,9 +190,4 @@ Maps can be of any size and are fastest for key based lookup.
 > Map.merge( %{a: 1, b: 2}, %{a: 4, c: 3} )         # %{a: 4, b: 2, c: 3}
 ```
 
-
-#### Struct
-
 #### HashDict
-
-#### Regular Expression
