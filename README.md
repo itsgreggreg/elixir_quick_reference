@@ -191,4 +191,14 @@ Maps can be of any size and are fastest for key based lookup.
 > Map.put( %{a: 1}, :b, 2 ) == %{a: 1, b: 2}        # true
 ```
 
-#### HashDict
+#### Range
+Used to generate an enumeration between start and end integers.
+That's it.<br>
+
+```elixir
+> 5..10
+> Range.new(5, 10) == 5..10 	# true
+> Range.range?(5..10)           # true
+> Enum.each(5..10, fn(n) -> n*n end) # prints all the squares
+```
+
