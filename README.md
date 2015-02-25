@@ -208,13 +208,42 @@ That's it.<br>
 ### Sytnax
 
 #### Variables
+Are declared and initialized upon use.<br>
 Must begin with a `a-z` or `_`.<br>
 May contain `a-z`, `A-Z`, `0-9` or `_`.<br>
-May end with `!` or `?`.
-Can hold any data structure and be assigned more than once
+May optionally end with `!` or `?`.
+Can hold any data structure and can be assigned more than once.
 
 ```elixir
+> something = :anything
+> something = ["a", "list", "of", "strings"
+> _yeeHaw1234! = %{:a => :b}
+```
 
+#### Operators
+##### Equality
+ - standard `==`, `!=`
+ - `===` and `!==` do not coerce Floats to Integers. `1 === 1.0 #false`
+
+##### Comparison
+ - standard `>`, `<`, `>=`, `<=`
+
+##### Logic
+ - standard, short-circuiting `&&` and `||`
+ 
+##### Math
+ - standard `+`, `-`, `*`, `/`
+
+#### Negation
+ - standard `!`. `!true === false`
+
+#### Truthiness
+`nil` and `false` are falsy.<br>
+Everything else is truthy.
+
+```elixir
+> !!nil  # false
+> !!0    # true
 ```
 
 
