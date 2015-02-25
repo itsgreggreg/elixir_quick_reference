@@ -244,6 +244,11 @@ Otherwise `false` is returned.
 > "abcd" =~ "ad"     # false
 ```
 
+##### Semicolons
+Semicolons can be used to terminate statements but in practice are rarely if ever used.<br>
+The only required usage is to put more than one statement on the same line. `a = 1; b = 2`<br>
+This is considered bad style and placing them on seperate lines is much prefered.
+
 #### Truthiness
 `nil` and `false` are falsy.<br>
 Everything else is truthy.
