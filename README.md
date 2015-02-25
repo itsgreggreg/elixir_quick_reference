@@ -380,3 +380,39 @@ def is_it_the_number_2(_) do
   false
 end
 ```
+
+#### Working with other modules
+ - import
+ - require
+ - use
+ - alias
+
+#### Documentation
+ - @moduledoc
+ - @doc
+ - @shortdoc
+
+### Control Flow
+ - if / else
+ - unless / else
+ - cond ... do
+ - case
+
+### Guards
+
+### Anonymous Functions
+
+### Comprehensions
+
+### Sigils
+
+### Pipes
+
+### Metaprogramming
+
+### Processes
+
+### Structs
+
+### Pattern Matching
+
