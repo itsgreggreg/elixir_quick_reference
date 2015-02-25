@@ -221,21 +221,15 @@ Can hold any data structure and can be assigned more than once.
 ```
 
 #### Operators
-##### Equality
- - standard `==`, `!=`
- - `===` and `!==` do not coerce Floats to Integers. `1 === 1.0 #false`
+##### Standard infix
+ - Equality `==`, `!=`
+ - Strict equality `===` and `!==` do not coerce Floats to Integers. `1 === 1.0 #false`
+ - Comparison `>`, `<`, `>=`, `<=`
+ - Logic, short-circuiting `&&` and `||`
+ - Math `+`, `-`, `*`, `/`
 
-##### Comparison
- - standard `>`, `<`, `>=`, `<=`
-
-##### Logic
- - standard, short-circuiting `&&` and `||`
- 
-##### Math
- - standard `+`, `-`, `*`, `/`
-
-#### Negation
- - standard `!`. `!true === false`
+##### Standard postfix
+ - negation `!`. `!true === false`
 
 #### Truthiness
 `nil` and `false` are falsy.<br>
