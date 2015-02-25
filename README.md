@@ -231,6 +231,19 @@ Can hold any data structure and can be assigned more than once.
 ##### Standard postfix
  - negation `!`. `!true === false`
 
+##### String Match
+`=~` takes a string on the left and on the right either a string or a regular expression.<br>
+If the string on the right is a substring of left, `true` is returned.<br>
+If the regular expression on the right matches the string on the left, `true` is returned.<br>
+Otherwise `false` is returned.
+
+```elixir
+> "abcd" =~ ~r/c(d)/ # true
+> "abcd" =~ ~r/e/    # false
+> "abcd" =~ "bc"     # true
+> "abcd" =~ "ad"     # false
+```
+
 #### Truthiness
 `nil` and `false` are falsy.<br>
 Everything else is truthy.
