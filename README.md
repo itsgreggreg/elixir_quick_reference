@@ -135,6 +135,9 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 > Enum.reverse [:a, :b, :c] # [:c, :b, :a]
 ```
 
+#### Charlist
+ - TODO
+
 #### Tuple
 Can be of any size and have elements of any type.<br>
 Elements are stored contiguously in memory.<br>
@@ -405,6 +408,42 @@ end
 ### Comprehensions
 
 ### Sigils
+Sigils create structures out of text passed to them.<br>
+They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.
+Built in sigils:
+ - s String
+ - c Charlist
+ - w List of words
+ - r Regular Expression
+```elixir
+> a = "Yay!"
+> ~s|Quotes #{a} 'used' "willy nilly.|   # "Quotes Yay! 'used' \"willy nilly."
+> ~c|abc\n123\t" #{a} more 'quotes|      # 'abc\n123\t" Yay! more \'quotes'
+> ~w|a list of words #{a} |              # ["a", "list", "of", "words", "Yay!"]
+```
+ 
+The same but without interpolation:
+ - S String
+ - C Charlist
+ - W List of words
+ - R Regular Expression
+```elixir
+> a = "Yay!"
+> ~S|Quotes #{a} 'used' "willy nilly.|   # "Quotes \#{a} 'used' \"willy nilly."
+> ~C|abc\n123\t" #{a} more 'quotes|      # 'abc\\n123\\t" \#{a} more \'quotes'
+> ~W|a list of words #{a} |              # ["a", "list", "of", "words", "\#{a}"]
+```
+
+You can also define custom Sigils:
+```elixir
+defmodule MySigils do
+  def sigil_i(string, []), do: String.to_integer(string)
+  def sigil_i(string, [?n]), do: -String.to_integer(string)
+end
+> import MySigils
+> ~i(13)   # 13
+> ~i(42)n  # -42
+```
 
 ### Pipes
 
