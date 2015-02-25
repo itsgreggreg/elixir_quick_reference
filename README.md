@@ -297,7 +297,7 @@ Names can contain `a-Z`, `A-Z`, `0-9` and `_`.<br>
 Names must not end with `_`.<br>
 Names can be compond, eg: `IO.Stream`. Compound module names are separated by a `.`.
 
-#### Declaratiion
+#### Declaration
 ```elixir
 defmodule MyModule do
 end
@@ -315,6 +315,68 @@ defmodule MyModule do
   end
 end
 ```
-    
 
+Inside of the defining module, functions may be called by name. Outside they must be called with the defining Module's name and a `.`. Eg: `IO.puts()`i
+```elixir
+defmodule MyModule do
+  def function1 do
+    IO.puts "func 1"
+  end
+  def function2 do
+    function1
+    IO.puts "funct 2"
+  end
+end
 
+> MyModule.function2
+```
+
+Arguments are passed to functions positionally and can have default arguments.<br>
+Arguments can be of any Type.
+```elixir
+defmodule MyModule do
+  def greet(greeting, who \\ "earthlings") do
+    IO.puts("#{greeting} #{who}")
+  end
+end
+
+> MyModule.printer("'sup", "y'all?")  # "'sup y'all?"
+> MyModule.printer("greetings")       # "greetings earthlings"
+```
+
+Module functions can be defined multiple times to support different configurations of arguments.
+```elixir
+defmodule MyModule do
+  def greet() do
+    greet("hello", "you")
+  end
+  def greet(greeting, who) do
+    IO.puts("#{greeting} #{who}")
+  end
+end
+
+> MyModule.printer("hello")  # "hello"
+> MyModule.printer([1,2,3])  # [1,2,3]
+> MyModule.printer()         # "nothing passed"
+```
+
+They can also be defined multiple times to Pattern Match on arguments passed.
+```elixir
+def is_it_the_number_2?(2) do
+  true
+end
+def is_it_the_number_2(value) do
+  false
+end
+```
+
+You can ignore arguments with `_` and our previous example is better written as
+```elixir
+def is_it_the_number_2?(2) do
+  true
+end
+#                      ⇣ underscore ignores argument
+def is_it_the_number_2(_) do
+  false
+end
+```
