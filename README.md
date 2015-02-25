@@ -244,10 +244,41 @@ Otherwise `false` is returned.
 > "abcd" =~ "ad"     # false
 ```
 
+##### Ternary
+Elixir has no ternary opperator. The same effect though can be achieved with the `if` macro.
+```elixir
+> a = if true, do: "True!", else: "False!"
+> a == "True!"  # true
+```
+
+##### Comments
+`#` indicates that itself and anything after it until a new line is a comment. That is all.
+
 ##### Semicolons
 Semicolons can be used to terminate statements but in practice are rarely if ever used.<br>
 The only required usage is to put more than one statement on the same line. `a = 1; b = 2`<br>
 This is considered bad style and placing them on seperate lines is much prefered.
+
+##### Do, End
+To call a macro with a single line of code you must structure it like so
+```elixir
+#      ⇣   ⇣         ⇣ no end keyword
+if true, do: "True!"
+```
+
+The equivalent in multiple lines of code is
+```elixir
+#       ⇣ ⇣ no comma or colon
+if true do
+  "True!"
+end
+```
+
+Both of these are syntactic sugar for
+```elixir
+if(true, [{:do, "True!"}, {:else, "False!"}])
+```
+
 
 #### Truthiness
 `nil` and `false` are falsy.<br>
@@ -257,7 +288,6 @@ Everything else is truthy.
 > !!nil  # false
 > !!0    # true
 ```
-
 
 
 
