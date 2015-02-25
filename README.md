@@ -205,3 +205,18 @@ That's it.<br>
 > Enum.each(5..10, fn(n) -> n*n end) # prints all the squares
 ```
 
+### Sytnax
+
+#### Variables
+Must begin with a `a-z` or `_`.<br>
+May contain `a-z`, `A-Z`, `0-9` or `_`.<br>
+May end with `!` or `?`.
+Can hold any data structure and be assigned more than once
+
+```elixir
+
+```
+
+
+
+
