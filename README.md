@@ -31,7 +31,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 
 ####Atom
 Constants whose name is their value. <br>
-Begin with `:` and can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. Can end with `!`.<br>
+Begin with `:` and can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. Can end with `!` or `?`.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
 Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
@@ -40,6 +40,7 @@ Stored in a global table once used and never de-allocated so avoid programmatic 
 ```elixir
 > :something
 > :_some_thing
+> :allowed?
 > :Some@Thing@12345
 > :"Üñîçødé and Spaces"
 > Atom.to_string(:Yay!)  # "Yay!"
