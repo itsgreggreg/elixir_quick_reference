@@ -99,6 +99,25 @@ line"                                    # true
 > String.valid?(<<4>>)              # true
 > String.printable?(<<4>>)          # false! 4 is a valid UTF-8 codepoint, but is not printable.
 ```
+##### Escape Sequences
+characters                | whitespace          | control sequences
+--------------------------|---------------------|----------------------
+`\"` – double quote       | `\b` – backspace    | `\a` – bell/alert
+`\'` – single quote       | `\f` - form feed    | `\d` - delete
+`\\` – single backslash   | `\n` – newline      | `\e` - escape
+                          | `\s` – space        | `\r` – carriage return
+                          | `\t` - tab          | `\0` - null byte
+                          | `\v` – vertical tab | 
+
+`\x...` - character with hexadecimal representation. <br>
+`\x{...}` - character with hexadecimal representation with one or more hexadecimal digits.<br>
+```elixir
+> "\x3f" == "?"      # true
+> "\x{266B}" == "♫" # true
+> "\x{2660}" == "♠" # true
+```
+
+
 
 #### Regular Expression
 Inherited from Erlang's `re` module and are Perl compatible.<br>
