@@ -540,6 +540,12 @@ end
 ## Working with Files
 
 ## Erlang Interoperability
+Erlang modules can be called by prepnding them with a colon.
+```elixir
+:crypto.hash(:sha, "Elixir is the beez knees") 
+|> :crypto.bytes_to_integer 
+|> Integer.to_string(16) # "62A3326DEDE3EE38C9C85ED6EC87FD888A130D24"
+```
 
 ## iex
  - `-S mix`
