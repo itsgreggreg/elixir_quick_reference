@@ -136,6 +136,7 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 ```
 
 #### Charlist
+ - `?` operator
  - TODO
 
 #### Tuple
@@ -170,6 +171,7 @@ Keyword Lists are only equal if all elements are equal and in the same order.
 > Keyword.get_values([a: 1, a: 2], :a) # [1, 2]
 > Keyword.keyword?([{:a,1}, {:b,2}])   # true
 > Keyword.keyword?([{:a,1}, {"b",2}])  # false! "b" is not an Atom
+> Keyword.delete([a: 1, b: 2], :a)     # [b: 2]
 ```
 
 #### Map
@@ -195,6 +197,7 @@ Maps can be of any size and are fastest for key based lookup.
 > %{ %{a: 1, b: 2, c: 3} | :a => 4, b: 5 }          # %{a: 4, b: 5, c: 3}
 > Map.merge( %{a: 1, b: 2}, %{a: 4, c: 3} )         # %{a: 4, b: 2, c: 3}
 > Map.put( %{a: 1}, :b, 2 ) == %{a: 1, b: 2}        # true
+> Kernel.put_in # TODO
 ```
 
 #### Range
@@ -207,6 +210,9 @@ That's it.<br>
 > Range.range?(5..10)           # true
 > Enum.each(5..10, fn(n) -> n*n end) # prints all the squares
 ```
+
+#### Streams
+ - TODO
 
 ### Sytnax
 
@@ -390,31 +396,44 @@ end
  - use
  - alias
 
+#### Attributes
+ - inlined by compiler
+ - @external_resource
+
 #### Documentation
  - @moduledoc
  - @doc
  - @shortdoc
+
+#### Introspection
+ - `__info__(:functions)`
+
+### Exceptions
 
 ### Control Flow
  - if / else
  - unless / else
  - cond ... do
  - case
+ - try/catch/throw
 
 ### Guards
 
 ### Anonymous Functions
 
 ### Comprehensions
+  - Multiple lists
+  - Multiple Filters
+  - Into
 
 ### Sigils
 Sigils create structures out of text passed to them.<br>
-They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.
+They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.<br>
 Built in sigils:
- - s String
- - c Charlist
- - w List of words
- - r Regular Expression
+ - s - String
+ - c - Charlist
+ - w - List of words
+ - r - Regular Expression
 ```elixir
 > a = "Yay!"
 > ~s|Quotes #{a} 'used' "willy nilly.|   # "Quotes Yay! 'used' \"willy nilly."
@@ -423,10 +442,10 @@ Built in sigils:
 ```
  
 The same but without interpolation:
- - S String
- - C Charlist
- - W List of words
- - R Regular Expression
+ - S - String
+ - C - Charlist
+ - W - List of words
+ - R - Regular Expression
 ```elixir
 > a = "Yay!"
 > ~S|Quotes #{a} 'used' "willy nilly.|   # "Quotes \#{a} 'used' \"willy nilly."
@@ -452,6 +471,19 @@ end
 ### Processes
 
 ### Structs
+  - %ModuleName{}
+  - implement Map behaviour
+  - Pattern matching on structs
+  - @derive
 
 ### Pattern Matching
+ - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
+ - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
+
+### iex
+ - `-S mix`
+ - `h Moule` \ `h function`
+ - `c filename`
+ - Tab completion
+ 
 
