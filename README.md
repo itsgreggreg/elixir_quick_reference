@@ -548,6 +548,12 @@ end
 ## Mix
 Task runner, build tool, testing harness.<br>
 Run `mix help` from the command line for more details.<br>
+
+#### Applications
+`mix new PATH` generates the boilerplate for an elixir application.<br>
+Run `mix help new` for more details.
+
+#### Tasks
 Mix tasks are modules under the `Mix.Task` namespace that `use Mix.Task` and implement a `run/1` function.<br>
 If you want your task to show up when `mix help` is run you must include a `@shortdoc`.<br>
 `@moduledoc` gets displayed when `mix help sometask` is run.
@@ -567,3 +573,23 @@ end
 
 Elixir has a built in option parser that you should use for such a task:<br>
 http://elixir-lang.org/docs/stable/elixir/OptionParser.html
+
+## Tests
+Testing is built into the elixir platform via [ExUnit](http://elixir-lang.org/docs/stable/ex_unit/).<br>
+You can define tests in two ways.<br>
+If you are in a Mix Application, you put tests in files under the `test` directory.<br>
+These tests will be run with `mix test`.<br>
+You can also place tests at the end of any elixir file and they will be run on compilation.<br>
+Test boilerplate looks like:
+```elixir
+# ⇣ not needed if in a mix project, setup for you in test_helper.exs
+ExUnit.start
+
+defmodule MyModuleTest do
+  use ExUnit.Case
+
+  test "the truth" do
+    assert 1 + 1 == 2
+  end
+end
+```
