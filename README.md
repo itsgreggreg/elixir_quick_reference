@@ -345,7 +345,7 @@ defmodule MyModule do
 end
 ```
 
-Inside of the defining module, functions may be called by name. Outside they must be called with the defining Module's name and a `.`. Eg: `IO.puts()`i
+Inside of the defining module, functions may be called by name. Outside they must be called with the defining Module's name and a `.`. Eg: `IO.puts()`
 ```elixir
 defmodule MyModule do
   def function1 do
