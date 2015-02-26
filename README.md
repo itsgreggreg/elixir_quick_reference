@@ -504,6 +504,8 @@ end
  - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
  - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
 
+## Erlang Interoperability
+
 ## iex
  - `-S mix`
  - `h Moule` \ `h function`
