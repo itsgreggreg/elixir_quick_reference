@@ -321,6 +321,7 @@ Can hold any data structure and can be assigned more than once.
  - Strict equality `===` and `!==` do not coerce Floats to Integers. `1 === 1.0 #false`
  - Comparison `>`, `<`, `>=`, `<=`
  - Logic, short-circuiting `&&` and `||`
+ - Boolean only Logic, short-circuiting `and` and `or`. (Only left side must be boolean)
  - Math `+`, `-`, `*`, `/`
 
 #### Standard postfix
