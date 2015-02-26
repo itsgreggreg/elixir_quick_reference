@@ -336,10 +336,8 @@ Everything else is truthy.
 ## Modules
 Modules organize code under a namespace.<br>
 They can be meta-programmed but are defined at compile time and cannot be changed after, only replaced .<br>
-Names must begin with `A-Z`.<br>
-Names can contain `a-Z`, `A-Z`, `0-9` and `_`.<br>
-Names must not end with `_`.<br>
-Names can be compond, eg: `IO.Stream`. Compound module names are separated by a `.`.
+Named according to the following format:<br>
+![Module Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/75b339df6f6592dd123a8afad0449faae7bd36cc/images/module-naming.png)
 
 #### Declaration
 ```elixir
