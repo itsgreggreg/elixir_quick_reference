@@ -9,7 +9,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
 ## Basic Types
 
-####Integer
+### Integer
 Can be specified in base 10, hex, or binary. All are stored as base 10.
 
  ```elixir
@@ -22,7 +22,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
  > Integer.to_string(0xcafe) == "51996"    # true
  ```
 
-####Float
+### Float
 64bit double precision. Can be specified with an exponent. Cannot begin or end with `.`.
 
 ```elixira
@@ -31,7 +31,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 > .001            # syntax error!
 ```
 
-####Atom
+### Atom
 Constants whose name is their value. <br>
 Are named in this format:
 <!-- :(?:[_0-9a-zA-z]@*)+[!?]{0,1} -->
@@ -50,9 +50,9 @@ Stored in a global table once used and never de-allocated so avoid programmatic 
 > :123                   # syntax error!
 ```
 
-####Boolean
+### Boolean
  `true` and `false` are just syntactic sugar for `:true` and `:false` and not a special type.
- 
+
 ```elixir
 > true  == :true     # true
 > false == :false    # true
@@ -61,7 +61,7 @@ Stored in a global table once used and never de-allocated so avoid programmatic 
 > is_boolean(:True)  # false!
 ```
 
-####Binary
+### Binary
 A binary is a sequence of bytes enclosed in `<< >>` and separated with `,`.<br>
 By default each number is 8 bits though size can be specified with:<br>
 `::size(n)`, `::n`, `::utf8`, `::utf16`, `::utf32` or `::float`<br>
@@ -79,7 +79,7 @@ Binaries are concatenated with `<>`.
 > is_bitstring(<<1::size(4)>>)       # true
 ```
 
-####String
+### String
 Strings are UTF-8 encoded binaries. They are enclosed in double quotes(`"`).<br>
 They can span multiple lines and contain interpolations.<br>
 Interpolations are enclosed in `#{}` and can contain any expression.<br>
@@ -100,7 +100,7 @@ line"                                    # true
 > String.valid?(<<4>>)              # true
 > String.printable?(<<4>>)          # false! 4 is a valid UTF-8 codepoint, but is not printable.
 ```
-##### Escape Sequences
+#### Escape Sequences
 characters                | whitespace          | control sequences
 --------------------------|---------------------|----------------------
 `\"` – double quote       | `\b` – backspace    | `\a` – bell/alert
@@ -108,7 +108,7 @@ characters                | whitespace          | control sequences
 `\\` – single backslash   | `\n` – newline      | `\e` - escape
                           | `\s` – space        | `\r` – carriage return
                           | `\t` - tab          | `\0` - null byte
-                          | `\v` – vertical tab | 
+                          | `\v` – vertical tab |
 
 `\x...` - character with hexadecimal representation. <br>
 `\x{...}` - character with hexadecimal representation with one or more hexadecimal digits.<br>
@@ -120,7 +120,7 @@ characters                | whitespace          | control sequences
 
 
 
-#### Regular Expression
+### Regular Expression
 Inherited from Erlang's `re` module and are Perl compatible.<br>
 Written literally with the `~r` [Sigil](#sigils) and can span multiple lines.<br>
 Can have a number of modifiers specified directly after the pattern.<br>
@@ -136,7 +136,7 @@ Many functions take a captures option that limits captures.
 
 ## Collection Types
 
-####List
+### List
 Simple linked lists that can be of any size and can have elements of any type.<br>
 They are enclosed in `[ ]` and elements are comma separated.<br>
 Concatenated with `++` and subtracted with `--`.<br>
@@ -156,12 +156,12 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 > Enum.member? [:a, :b], :b  # true
 ```
 
-#### Charlist
+### Charlist
  - `?` operator
  - Same [Escape Sequences](#escape-sequences) as String.
  - TODO
 
-#### Tuple
+### Tuple
 Can be of any size and have elements of any type.<br>
 Elements are stored contiguously in memory.<br>
 Enclosed in `{ }` and elements are comma separated.<br>
@@ -176,7 +176,7 @@ Fast for index-based access, slow for a large number of elements.<br>
 > Tuple.to_list({:a, :b, :c})      # [:a, :b, :c]
 ```
 
-#### Keyword List
+### Keyword List
 A `List` of 2 element `Tuples` whose first element is an `Atom`.<br>
 They have a special syntactic variant where each `Tuple`s `{ }` are ommitted and the key `Atom` has it's colon on the right side.<br>
 Since they are just `List`s they guarantee order as specified, can have multiple elements with the same key and are fastest when accessed at the head.<br>
@@ -196,7 +196,7 @@ Keyword Lists are only equal if all elements are equal and in the same order.
 > Keyword.delete([a: 1, b: 2], :a)     # [b: 2]
 ```
 
-#### Map
+### Map
 Key - Value store where Keys and Values are of any type.<br>
 Cannot have multiple values for the same key and are unordered.<br>
 `Map`s are enclosed in `%{ }`, elements are comma seperated, and elemets have the form: key `=>` value.<br>
@@ -222,7 +222,7 @@ Maps can be of any size and are fastest for key based lookup.
 > Kernel.put_in # TODO
 ```
 
-#### Range
+### Range
 Used to generate an enumeration between start and end integers.
 That's it.<br>
 
@@ -233,12 +233,12 @@ That's it.<br>
 > Enum.each(5..10, fn(n) -> n*n end) # prints all the squares
 ```
 
-#### Streams
+### Streams
  - TODO
 
 ## Sytnax
 
-#### Variables
+### Variables
 Are declared and initialized upon use.<br>
 Are named in the following format:
 <!-- [_a-z][_a-zA-z0-9]*[!?]? -->
@@ -251,18 +251,18 @@ Can hold any data structure and can be assigned more than once.
 > _yeeHaw1234! = %{:a => :b}
 ```
 
-#### Operators
-##### Standard infix
+### Operators
+#### Standard infix
  - Equality `==`, `!=`
  - Strict equality `===` and `!==` do not coerce Floats to Integers. `1 === 1.0 #false`
  - Comparison `>`, `<`, `>=`, `<=`
  - Logic, short-circuiting `&&` and `||`
  - Math `+`, `-`, `*`, `/`
 
-##### Standard postfix
+#### Standard postfix
  - negation `!`. `!true === false`
 
-##### Pipe
+#### Pipe
 `|>`<br>
 Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
 The statement on the left can be on the preceeding line of code.
@@ -274,7 +274,7 @@ hd([1,2,3])
 |> IO.inspect  # "1"
 ```
 
-##### String Match
+#### String Match
 `=~` takes a string on the left and on the right either a string or a regular expression.<br>
 If the string on the right is a substring of left, `true` is returned.<br>
 If the regular expression on the right matches the string on the left, `true` is returned.<br>
@@ -287,22 +287,22 @@ Otherwise `false` is returned.
 > "abcd" =~ "ad"     # false
 ```
 
-##### Ternary
+#### Ternary
 Elixir has no ternary opperator. The same effect though can be achieved with the `if` macro.
 ```elixir
 > a = if true, do: "True!", else: "False!"
 > a == "True!"  # true
 ```
 
-##### Comments
+### Comments
 `#` indicates that itself and anything after it until a new line is a comment. That is all.
 
-##### Semicolons
+### Semicolons
 Semicolons can be used to terminate statements but in practice are rarely if ever used.<br>
 The only required usage is to put more than one statement on the same line. `a = 1; b = 2`<br>
 This is considered bad style and placing them on seperate lines is much prefered.
 
-##### Do, End
+### Do, End
 To call a macro with a single line of code you must structure it like so
 ```elixir
 #      ⇣   ⇣         ⇣ no end keyword
@@ -323,7 +323,7 @@ if(true, [{:do, "True!"}, {:else, "False!"}])
 ```
 
 
-#### Truthiness
+## Truthiness
 `nil` and `false` are falsy.<br>
 Everything else is truthy.
 
@@ -339,13 +339,13 @@ Named according to the following format:<br>
 <!-- [A-Z][_a-zA-Z0-9]*(?:\.[A-Z][_a-zA-Z0-9]*)* -->
 ![Module Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/75b339df6f6592dd123a8afad0449faae7bd36cc/images/module-naming.png)
 
-#### Declaration
+### Declaration
 ```elixir
 defmodule MyModule do
 end
 ```
 
-#### Module Functions
+### Module Functions
 Names must begin with `a-z`.<br>
 Names can contain `a-Z`, `A-Z`, `0-9` and `_`.<br>
 May end with `?` or `!`.<br>
@@ -384,7 +384,7 @@ Arguments are passed to functions positionally and can have default arguments.<b
 Arguments can be of any Type.
 ```elixir
 defmodule MyModule do
-#                         ⇣ indicates "earthlings" to be the default for who 
+#                         ⇣ indicates "earthlings" to be the default for who
   def greet(greeting, who \\ "earthlings") do
     IO.puts("#{greeting} #{who}")
   end
@@ -437,17 +437,17 @@ def square(n) when is_number(n), do: n * n
 def square(_), do: raise "not a number"
 ```
 
-#### Working with other modules
+### Working with other modules
  - import
  - require
  - use
  - alias
 
-#### Attributes
+### Attributes
  - inlined by compiler
  - @external_resource
 
-#### Documentation
+### Documentation
 Elixir has documentation built in and you can document your modules and functions with Attributes. <br>
 `@moduledoc` describes your module. <br>
 `@doc` describes module functions.
@@ -456,13 +456,13 @@ defmodule MathUtils do
   @moduledoc """
   Random math related functions
   """
-  
+
   @doc "Squares the given number."
   def square(n), do: n*n
 end
 ```
 
-#### Introspection
+### Introspection
  - `__info__(:functions)`
 
 ## Exceptions
@@ -542,8 +542,8 @@ end
 ## Erlang Interoperability
 Erlang modules can be called by prepnding them with a colon.
 ```elixir
-:crypto.hash(:sha, "Elixir is the beez knees") 
-|> :crypto.bytes_to_integer 
+:crypto.hash(:sha, "Elixir is the beez knees")
+|> :crypto.bytes_to_integer
 |> Integer.to_string(16) # "62A3326DEDE3EE38C9C85ED6EC87FD888A130D24"
 ```
 
@@ -557,11 +557,11 @@ Erlang modules can be called by prepnding them with a colon.
 Task runner, build tool, testing harness.<br>
 Run `mix help` from the command line for more details.<br>
 
-#### Applications
+### Applications
 `mix new PATH` generates the boilerplate for an elixir application.<br>
 Run `mix help new` for more details.
 
-#### Tasks
+### Tasks
 Mix tasks are modules under the `Mix.Task` namespace that `use Mix.Task` and implement a `run/1` function.<br>
 If you want your task to show up when `mix help` is run you must include a `@shortdoc`.<br>
 `@moduledoc` gets displayed when `mix help sometask` is run.
