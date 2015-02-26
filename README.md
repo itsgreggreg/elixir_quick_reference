@@ -260,6 +260,18 @@ Can hold any data structure and can be assigned more than once.
 ##### Standard postfix
  - negation `!`. `!true === false`
 
+##### Pipe
+`|>`<br>
+Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
+The statement on the left can be on the preceeding line of code.
+```elixir
+> [1,2,3] |> hd |> Integer.to_string |> IO.inspect # "1"
+# ⇣ doesn't work in iex
+hd([1,2,3])
+|> Integer.to_string
+|> IO.inspect  # "1"
+```
+
 ##### String Match
 `=~` takes a string on the left and on the right either a string or a regular expression.<br>
 If the string on the right is a substring of left, `true` is returned.<br>
@@ -506,8 +518,6 @@ end
 > ~i(13)   # 13
 > ~i(42)n  # -42
 ```
-
-## Pipes
 
 ## Metaprogramming
  - macros
