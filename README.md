@@ -121,7 +121,7 @@ characters                | whitespace          | control sequences
 
 #### Regular Expression
 Inherited from Erlang's `re` module and are Perl compatible.<br>
-Written literally with the `~r` [Sigil](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#sigils) and can span multiple lines.<br>
+Written literally with the `~r` [Sigil](#sigils) and can span multiple lines.<br>
 Can have a number of modifiers specified directly after the pattern.<br>
 Many functions take a captures option that limits captures.
 
@@ -156,7 +156,7 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 
 #### Charlist
  - `?` operator
- - Same [Escape Sequences](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#escape-sequences) as String.
+ - Same [Escape Sequences](#escape-sequences) as String.
  - TODO
 
 #### Tuple
@@ -345,7 +345,7 @@ defmodule MyModule do
 end
 ```
 
-`def` is actually a macro, and like calling any macro, [do ... end](https://github.com/itsgreggreg/elixir_quick_reference#do-end) can be written as a one liner:
+`def` is actually a macro, and like calling any macro, [do ... end](#do-end) can be written as a one liner:
 ```elixir
 defmodule MyModule do
   def my_function, do: IO.puts("Hello from my function")
@@ -417,7 +417,7 @@ def is_it_the_number_2(_) do
 end
 ```
 
-Module function definitions can have [Guards](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#guards).
+Module function definitions can have [Guards](#guards).
 ```elixir
 def square(n) when is_number(n), do: n * n
 def square(_), do: raise "not a number"
