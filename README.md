@@ -156,6 +156,7 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 
 #### Charlist
  - `?` operator
+ - Same [Escape Sequences](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#escape-sequences) as String.
  - TODO
 
 #### Tuple
