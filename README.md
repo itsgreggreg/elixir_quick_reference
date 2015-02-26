@@ -121,7 +121,7 @@ characters                | whitespace          | control sequences
 
 #### Regular Expression
 Inherited from Erlang's `re` module and are Perl compatible.<br>
-Written literally with the `~r` `Sigil` and can span multiple lines.<br>
+Written literally with the `~r` [Sigil](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#sigils) and can span multiple lines.<br>
 Can have a number of modifiers specified directly after the pattern.<br>
 Many functions take a captures option that limits captures.
 
