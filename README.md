@@ -7,7 +7,7 @@ Elixir Source: https://github.com/elixir-lang/elixir<br>
 Try Elixir Online: http://try-elixir.herokuapp.com/<br>
 This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
-###Basic Types
+## Basic Types
 
 ####Integer
 Can be specified in base 10, hex, or binary. All are stored as base 10.
@@ -114,7 +114,7 @@ Many functions take a captures option that limits captures.
 > Regex.run(~r/hat: (.*)/, "hat: 🎩", [capture: :all_but_first]) == ["🎩"]  # true
 ```
 
-###Collection Types
+## Collection Types
 
 ####List
 Simple linked lists that can be of any size and can have elements of any type.<br>
@@ -214,7 +214,7 @@ That's it.<br>
 #### Streams
  - TODO
 
-### Sytnax
+## Sytnax
 
 #### Variables
 Are declared and initialized upon use.<br>
@@ -298,7 +298,7 @@ Everything else is truthy.
 > !!0    # true
 ```
 
-### Modules
+## Modules
 Modules organize code under a namespace.<br>
 They can be meta-programmed but are defined at compile time and cannot be changed after, only replaced .<br>
 Names must begin with `A-Z`.<br>
@@ -408,25 +408,25 @@ end
 #### Introspection
  - `__info__(:functions)`
 
-### Exceptions
+## Exceptions
 
-### Control Flow
+## Control Flow
  - if / else
  - unless / else
  - cond ... do
  - case
  - try/catch/throw
 
-### Guards
+## Guards
 
-### Anonymous Functions
+## Anonymous Functions
 
-### Comprehensions
+## Comprehensions
   - Multiple lists
   - Multiple Filters
   - Into
 
-### Sigils
+## Sigils
 Sigils create structures out of text passed to them.<br>
 They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.<br>
 Built in sigils:
@@ -464,23 +464,23 @@ end
 > ~i(42)n  # -42
 ```
 
-### Pipes
+## Pipes
 
-### Metaprogramming
+## Metaprogramming
 
-### Processes
+## Processes
 
-### Structs
+## Structs
   - %ModuleName{}
   - implement Map behaviour
   - Pattern matching on structs
   - @derive
 
-### Pattern Matching
+## Pattern Matching
  - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
  - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
 
-### iex
+## iex
  - `-S mix`
  - `h Moule` \ `h function`
  - `c filename`
