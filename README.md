@@ -148,10 +148,11 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 > [ 1 | [2 | [3]]] == [1, 2, 3]   # true
 > [1, 2, 3.4] ++ ["a", "b", :c]   # [1, 2, 3.4, "a", "b", :c]
 > [1, 2, 3.4, "a", "b", :c, [:d]] -- [2, "a", "c"]  # [1, 3.4, "b", :c, [:d]]
-> hd [1, 2, 3]              # 1
-> tl [1, 2, 3]              # [2, 3]
-> length [:a, :b, :c, :d]   # 4
-> Enum.reverse [:a, :b, :c] # [:c, :b, :a]
+> hd [1, 2, 3]               # 1
+> tl [1, 2, 3]               # [2, 3]
+> length [:a, :b, :c, :d]    # 4
+> Enum.reverse [:a, :b, :c]  # [:c, :b, :a]
+> Enum.member? [:a, :b], :b  # true
 ```
 
 #### Charlist
