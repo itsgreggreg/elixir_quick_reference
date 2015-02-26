@@ -485,38 +485,36 @@ end
 Sigils create structures out of text passed to them.<br>
 They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.<br>
 Built in sigils:
- - s - String
- - c - Charlist
- - w - List of words
- - r - Regular Expression
+
+Creates           | With Interpolation | Without Interpolation
+------------------|:------------------:|:---------------------:|
+String            | s                  | S
+Charlist          | c                  | C
+List of words     | w                  | W
+Regular Expression| r                  | R
+
 ```elixir
 > a = "Yay!"
 > ~s|Quotes #{a} 'used' "willy nilly.|   # "Quotes Yay! 'used' \"willy nilly."
-> ~c|abc\n123\t" #{a} more 'quotes|      # 'abc\n123\t" Yay! more \'quotes'
+> ~S|Not "interpolated" #{a}|            # "Not \"interpolated\" \#{a}"
+> ~c|charlist "with" 'quotes' #{a}|      # 'charlist "with" \'quotes\' Yay!'
 > ~w|a list of words #{a} |              # ["a", "list", "of", "words", "Yay!"]
-```
- 
-The same but without interpolation:
- - S - String
- - C - Charlist
- - W - List of words
- - R - Regular Expression
-```elixir
-> a = "Yay!"
-> ~S|Quotes #{a} 'used' "willy nilly.|   # "Quotes \#{a} 'used' \"willy nilly."
-> ~C|abc\n123\t" #{a} more 'quotes|      # 'abc\\n123\\t" \#{a} more \'quotes'
 > ~W|a list of words #{a} |              # ["a", "list", "of", "words", "\#{a}"]
 ```
 
 You can also define custom Sigils:
 ```elixir
-defmodule MySigils do
-  def sigil_i(string, []), do: String.to_integer(string)
-  def sigil_i(string, [?n]), do: -String.to_integer(string)
+defmodule MySigil do
+  def sigil_i(string, 'd') do
+    for num <- String.split(string), do: String.to_integer(num) * 2
+  end
+  def sigil_i(string, _opts) do
+    for num <- String.split(string), do: String.to_integer(num)
+  end
 end
-> import MySigils
-> ~i(13)   # 13
-> ~i(42)n  # -42
+> import MySigil
+> ~i|1 2 3 4 5|   # [1, 2, 3, 4, 5]
+> ~i|1 2 3 4 5|d  # [2, 4, 6, 8, 10]
 ```
 
 ## Metaprogramming
