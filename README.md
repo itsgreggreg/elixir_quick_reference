@@ -34,8 +34,8 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 ####Atom
 Constants whose name is their value. <br>
 Are named in this format:
-<!-- atom-name-regex :[_0-9a-zA-z]+[@_a-zA-Z0-9]+[!?]{0,1} -->
-![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/c01ab798730a3154f8ecf8ab0d714ae22e9fa54b/images/atom-naming.png)<br>
+<!-- :(?:[_0-9a-zA-z]@*)+[!?]{0,1} -->
+![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/50ffe1e533896247fbb6429b72f83cdbb1186a8a/images/atom-naming.png)<br>
 `:!` and `:@` are also allowed.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
@@ -242,8 +242,8 @@ That's it.<br>
 #### Variables
 Are declared and initialized upon use.<br>
 Are named in the following format:
-<!-- [_a-zA-z]+[_a-zA-z0-9]*[!?]? -->
-![variable naming](https://raw.githubusercontent.com/itsgreggreg/elixir_quick_reference/07100882977780d0a91b6fddb55ef4f5cb31172d/images/variable-naming.png)<br>
+<!-- [_a-z][_a-zA-z0-9]*[!?]? -->
+![variable naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/50ffe1e533896247fbb6429b72f83cdbb1186a8a/images/variable-naming.png)<br>
 Can hold any data structure and can be assigned more than once.
 
 ```elixir
@@ -337,6 +337,7 @@ Everything else is truthy.
 Modules organize code under a namespace.<br>
 They can be meta-programmed but are defined at compile time and cannot be changed after, only replaced .<br>
 Named according to the following format:<br>
+<!-- [A-Z][_a-zA-Z0-9]*(?:\.[A-Z][_a-zA-Z0-9]*)* -->
 ![Module Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/75b339df6f6592dd123a8afad0449faae7bd36cc/images/module-naming.png)
 
 #### Declaration
@@ -600,3 +601,7 @@ defmodule MyModuleTest do
   end
 end
 ```
+
+<hr>
+**Notes**
+ - Regex images generated here: http://jex.im/regulex/
