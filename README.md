@@ -36,7 +36,6 @@ Constants whose name is their value. <br>
 Are named in this format:
 <!-- :(?:[_0-9a-zA-z]@*)+[!?]{0,1} -->
 ![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/50ffe1e533896247fbb6429b72f83cdbb1186a8a/images/atom-naming.png)<br>
-`:!` and `:@` are also allowed.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
 Stored in a global table once used and never de-allocated so avoid programmatic creation.<br>
