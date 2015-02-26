@@ -384,6 +384,7 @@ Arguments are passed to functions positionally and can have default arguments.<b
 Arguments can be of any Type.
 ```elixir
 defmodule MyModule do
+#                         ⇣ indicates "earthlings" to be the default for who 
   def greet(greeting, who \\ "earthlings") do
     IO.puts("#{greeting} #{who}")
   end
