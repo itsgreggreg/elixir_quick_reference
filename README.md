@@ -546,5 +546,24 @@ end
  - Tab completion
 
 ## Mix
- 
+Task runner, build tool, testing harness.<br>
+Run `mix help` from the command line for more details.<br>
+Mix tasks are modules under the `Mix.Task` namespace that `use Mix.Task` and implement a `run/1` function.<br>
+If you want your task to show up when `mix help` is run you must include a `@shortdoc`.<br>
+`@moduledoc` gets displayed when `mix help sometask` is run.
+A base mix task file looks like:
+```elixir
+defmodule Mix.Tasks.MyTask do
+  use Mix.Task
+  @shortdoc "Boilerplate for a task"
+  @moduledoc """
+  This task just echos out the options passed to it.
+  """
+  def run(opts) do
+    IO.inspect(opts)
+  end
+end
+```
 
+Elixir has a built in option parser that you should use for such a task:<br>
+http://elixir-lang.org/docs/stable/elixir/OptionParser.html
