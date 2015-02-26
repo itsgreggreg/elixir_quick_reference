@@ -47,7 +47,10 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Attributes](#attributes)
   - [Documentation](#documentation)
   - [Introspection](#introspection)
-- [Exceptions](#exceptions)
+- [Errors](#errors)
+  - [Raise](#raise)
+  - [Custom Error](#custom-error)
+  - [Rescue](#rescue)
 - [Control Flow](#control-flow)
 - [Guards](#guards)
 - [Anonymous Functions](#anonymous-functions)
@@ -526,7 +529,55 @@ end
 ### Introspection
  - `__info__(:functions)`
 
-## Exceptions
+## Errors
+Only to be used in exceptional circumstances, not for control flow.<br>
+Built in errors are listed here: http://elixir-lang.org/docs/v1.0/elixir/overview.html#exceptions_summary<br>
+
+### Raise
+`raise` a runtime error:
+```elixir
+> raise "not fabulous enough"
+** (RuntimeError) not fabulous enough
+```
+
+`raise` a different error:
+```elixir
+> raise ArgumentError, "I'm done. We're talking in circles."
+#** (ArgumentError) I'm done. We're talking in circles.
+```
+
+Some errors take specific options, and you must read the source to find them:
+```elixir
+> raise KeyError, key: "to car", term: "pocket"
+#** (KeyError) key "to car" not found in: "pocket"
+```
+
+### Custom Error
+``` elixir
+defmodule LandWarWithRussiaError do
+  defexception message: "Never."
+end
+> raise LandWarWithRussiaError
+#** (LandWarWithRussiaError) Never.
+```
+
+### Rescue
+```elixir
+try do
+  if false do
+    raise "are we there yet?"
+  else
+    raise ArgumentError, "I'll pull this car around!"
+  end
+rescue
+  e in RuntimeError  -> IO.puts "No!"
+  e in ArgumentError -> IO.puts "That's it we're going home!"
+end
+```
+
+**Remember** There are much better ways to control flow in Elixir than raising/rescuing errors.<br>
+Errors should be reserved for truly exceptional situations.
+
 
 ## Control Flow
  - if / else
