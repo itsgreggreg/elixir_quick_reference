@@ -7,6 +7,67 @@ Elixir Source: https://github.com/elixir-lang/elixir<br>
 Try Elixir Online: http://try-elixir.herokuapp.com/<br>
 This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Table of Contents
+
+- [Basic Types](#basic-types)
+  - [Integer](#integer)
+  - [Float](#float)
+  - [Atom](#atom)
+  - [Boolean](#boolean)
+  - [Binary](#binary)
+  - [String](#string)
+    - [Escape Sequences](#escape-sequences)
+  - [Regular Expression](#regular-expression)
+- [Collection Types](#collection-types)
+  - [List](#list)
+  - [Charlist](#charlist)
+  - [Tuple](#tuple)
+  - [Keyword List](#keyword-list)
+  - [Map](#map)
+  - [Range](#range)
+  - [Streams](#streams)
+- [Sytnax](#sytnax)
+  - [Variables](#variables)
+  - [Operators](#operators)
+    - [Standard infix](#standard-infix)
+    - [Standard postfix](#standard-postfix)
+    - [Pipe](#pipe)
+    - [String Match](#string-match)
+    - [Ternary](#ternary)
+  - [Comments](#comments)
+  - [Semicolons](#semicolons)
+  - [Do, End](#do-end)
+- [Truthiness](#truthiness)
+- [Modules](#modules)
+  - [Declaration](#declaration)
+  - [Module Functions](#module-functions)
+  - [Working with other modules](#working-with-other-modules)
+  - [Attributes](#attributes)
+  - [Documentation](#documentation)
+  - [Introspection](#introspection)
+- [Exceptions](#exceptions)
+- [Control Flow](#control-flow)
+- [Guards](#guards)
+- [Anonymous Functions](#anonymous-functions)
+- [Comprehensions](#comprehensions)
+- [Sigils](#sigils)
+- [Metaprogramming](#metaprogramming)
+- [Processes](#processes)
+- [Structs](#structs)
+- [Pattern Matching](#pattern-matching)
+- [Working with Files](#working-with-files)
+- [Erlang Interoperability](#erlang-interoperability)
+- [iex](#iex)
+- [Mix](#mix)
+  - [Applications](#applications)
+  - [Tasks](#tasks)
+- [Tests](#tests)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 ## Basic Types
 
 ### Integer
