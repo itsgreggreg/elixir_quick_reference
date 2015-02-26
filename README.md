@@ -33,9 +33,9 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 
 ####Atom
 Constants whose name is their value. <br>
-Atoms are named in this format:
+Are named in this format:
 <!-- atom-name-regex :[_0-9a-zA-z]+[@_a-zA-Z0-9]+[!?]{0,1} -->
-![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/cbd69afccd595be3a8253fc71059ad6cdc6bd8fc/images/atom-naming.svg)<br>
+![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/c01ab798730a3154f8ecf8ab0d714ae22e9fa54b/images/atom-naming.png)<br>
 `:!` and `:@` are also allowed.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
@@ -241,9 +241,9 @@ That's it.<br>
 
 #### Variables
 Are declared and initialized upon use.<br>
-Must begin with a `a-z` or `_`.<br>
-May contain `a-z`, `A-Z`, `0-9` or `_`.<br>
-May optionally end with `!` or `?`.
+Are named in the following format:
+<!-- [_a-zA-z]+[_a-zA-z0-9]*[!?]? -->
+![variable naming](https://raw.githubusercontent.com/itsgreggreg/elixir_quick_reference/07100882977780d0a91b6fddb55ef4f5cb31172d/images/variable-naming.png)<br>
 Can hold any data structure and can be assigned more than once.
 
 ```elixir
