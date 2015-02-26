@@ -33,10 +33,12 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 
 ####Atom
 Constants whose name is their value. <br>
-Begin with `:` and can contain: `A-Z`, `a-z`, `0-9`, `_` and `@`. Can end with `!` or `?`.<br>
+Atoms are named in this format:
+<!-- atom-name-regex :[_0-9a-zA-z]+[@_a-zA-Z0-9]+[!?]{0,1} -->
+![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/6de3c8e416743314ca39d85155dfd0335745634c/images/atom-naming.svg)<br>
+`:!` and `:@` are also allowed.<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
-Must begin with: `A-Z`, `a-z` or `_`. `:!` and `:@` also allowed.<br>
 Stored in a global table once used and never de-allocated so avoid programmatic creation.<br>
 
 ```elixir
