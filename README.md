@@ -345,6 +345,13 @@ defmodule MyModule do
 end
 ```
 
+`def` is actually a macro, and like calling any macro, [do ... end](https://github.com/itsgreggreg/elixir_quick_reference#do-end) can be written as a one liner:
+```elixir
+defmodule MyModule do
+  def my_function, do: IO.puts("Hello from my function")
+end
+```
+
 Inside of the defining module, functions may be called by name. Outside they must be called with the defining Module's name and a `.`. Eg: `IO.puts()`
 ```elixir
 defmodule MyModule do
@@ -408,6 +415,12 @@ end
 def is_it_the_number_2(_) do
   false
 end
+```
+
+Module function definitions can have [Guards](https://github.com/itsgreggreg/elixir_quick_reference/blob/master/README.md#guards).
+```elixir
+def square(n) when is_number(n), do: n * n
+def square(_), do: raise "not a number"
 ```
 
 #### Working with other modules
