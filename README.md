@@ -421,9 +421,19 @@ end
  - @external_resource
 
 #### Documentation
- - @moduledoc
- - @doc
- - @shortdoc
+Elixir has documentation built in and you can document your modules and functions with Attributes. <br>
+`@moduledoc` describes your module. <br>
+`@doc` describes module functions.
+```elixir
+defmodule MathUtils do
+  @moduledoc """
+  Random math related functions
+  """
+  
+  @doc "Squares the given number."
+  def square(n), do: n*n
+end
+```
 
 #### Introspection
  - `__info__(:functions)`
@@ -511,5 +521,7 @@ end
  - `h Moule` \ `h function`
  - `c filename`
  - Tab completion
+
+## Mix
  
 
