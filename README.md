@@ -487,6 +487,10 @@ end
 ## Pipes
 
 ## Metaprogramming
+ - macros
+ - quote
+ - unquote
+ - var!
 
 ## Processes
 
