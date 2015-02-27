@@ -283,6 +283,7 @@ Maps can be of any size and are fastest for key based lookup.
 > %{ %{a: 1, b: 2, c: 3} | :a => 4, b: 5 }          # %{a: 4, b: 5, c: 3}
 > Map.merge( %{a: 1, b: 2}, %{a: 4, c: 3} )         # %{a: 4, b: 2, c: 3}
 > Map.put( %{a: 1}, :b, 2 ) == %{a: 1, b: 2}        # true
+> Kernel.get_in # TODO
 > Kernel.put_in # TODO
 ```
 
