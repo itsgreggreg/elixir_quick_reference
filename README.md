@@ -593,12 +593,12 @@ Errors should be reserved for truly exceptional situations.
 TODO: how to use guards.<br>
 Functions and operators allowed in guard clauses:
 
-comparison | logic | math  | type_checking | tuple        |list                           |binary     | Kernel
------------|-------|-------|---------------|--------------|-------------------------------|-----------|--------
-==         | or    | +     | is_atom       | elem()       |a `in` b (b only List or Range)|bit_size() | node()
-!=         | and   | -     | is_binary     | tuple_size() |hd()                           |byte_size()| self()
-===        | not   | *     | is_bitstring  |              |tl()                           |           |
-!==        |       | /     | is_boolean    |              |length()                       |           |
+ =        | logic | math  | type_checking | tuple        |list     |binary     | Kernel
+-----------|-------|-------|---------------|--------------|---------|-----------|--------
+==         | or    | +     | is_atom       | elem()       |a `in` b |bit_size() | node()
+!=         | and   | -     | is_binary     | tuple_size() |hd()     |byte_size()| self()
+===        | not   | *     | is_bitstring  |              |tl()     |           |
+!==        |       | /     | is_boolean    |              |length() |           |
 >          |       |abs()  | is_exception  ||||
 <          |       |div()  | is_float      ||||
 <=         |       |float()| is_function   ||||
