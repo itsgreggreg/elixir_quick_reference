@@ -33,6 +33,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Operators](#operators)
     - [Standard infix](#standard-infix)
     - [Standard postfix](#standard-postfix)
+    - [= (match)](#-match)
     - [Pipe](#pipe)
     - [String Match](#string-match)
     - [? (codepoint)](#-codepoint)
