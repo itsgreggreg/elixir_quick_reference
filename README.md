@@ -328,7 +328,7 @@ Can hold any data structure and can be assigned more than once.
 
 ```elixir
 > something = :anything
-> something = ["a", "list", "of", "strings"
+> something = ["a", "list", "of", "strings"]
 > _yeeHaw1234! = %{:a => :b}
 ```
 
