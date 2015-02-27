@@ -343,6 +343,9 @@ Can hold any data structure and can be assigned more than once.
 #### Standard postfix
  - negation `!`. `!true === false`
 
+#### = (match)
+ - TODO
+
 #### Pipe
 `|>`<br>
 Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
