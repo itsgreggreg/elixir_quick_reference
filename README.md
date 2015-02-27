@@ -54,6 +54,10 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Custom Error](#custom-error)
   - [Rescue](#rescue)
 - [Control Flow](#control-flow)
+  - [if/unless](#if/unless)
+  - [case](#case)
+  - [cond](#cond)
+  - [throw/catch](#throw/catch)
 - [Guards](#guards)
 - [Anonymous Functions](#anonymous-functions)
 - [Comprehensions](#comprehensions)
@@ -632,11 +636,91 @@ Errors should be reserved for truly exceptional situations.
 
 
 ## Control Flow
- - if / else
- - unless / else
- - cond ... do
- - case
- - try/catch/throw
+### if/unless
+```elixir
+if :something_truthy do
+  IO.puts "something truthy happened"
+else
+  IO.puts "false or nil happened"
+end
+
+unless :something_truthy do
+  IO.puts "nil or false happened"
+else
+ IO.puts "something truthy happened"
+end
+```
+
+### case
+`case` let's you pattern match on a value.<br>
+If no cases match it throws a `MatchError`.
+```elixir
+case 137 do
+  "137" -> IO.puts "I require 137 the number."
+  137   -> IO.puts "Ahh much better."
+  138   ->
+    IO.puts "Blocks can start on the next line as well."
+end
+```
+
+Like all pattern matches, `_` will match anything and can be used as a catchall:
+```elixir
+case {:ok, "everything went to plan"} do
+  {:ok, message}    -> IO.puts message
+  {:error, message} -> IO.puts "ERROR!: #{message}"
+# ⇣catchall, otherwise you'll get an error if nothing matches
+  _                 -> IO.puts "I match everything else!"
+end
+```
+
+You can have [guards](#guards) on your cases:
+```elixir
+case 1_349 do
+  n when is_integer n -> IO.puts "you gave me an integer"
+  n when is_binary n  -> IO.puts "you gave me a binary"
+  _                   -> IO.puts "you gave me neither an integer nor binary"
+end
+```
+
+### cond
+`cond` takes one or more conditions and runs the first truthy one it finds.<br>
+Often used where imperative languages would use elseif.<br>
+If no statements evaluate to true it throws a `MatchError`.
+```elixir
+cond do
+  false -> IO.puts "I will never run"
+  true  -> IO.puts "I will always run"
+  1235  -> IO.puts "I would run if that dang true wasn't on top of me."
+end
+```
+
+`true` is often used as a catch all:
+```elixir
+guess = 12
+cond do
+  guess == 10 -> IO.puts "You guessed 10!"
+  guess == 46 -> IO.puts "You guessed 46!"
+  true        -> 
+    IO.puts "I give up."
+end
+```
+### throw/catch
+Inside of a `try` block you can `throw` any data structure and pattern match on it inside a `catch` block.<br>
+`catch` blocks work the same as [case](#case) blocks.
+`after` blocks will always run, throw or no throw.
+```elixir
+try do
+  IO.puts "Inside a try block"
+  throw [:hey, "Reggie"]
+  IO.puts "if there is a throw before me, I'll never run."
+catch
+  x when is_number(x) -> IO.puts "!!A number was thrown."
+  [:hey, name] -> IO.puts "!!Hey was thrown to #{name}."
+  _ -> IO.puts "Something else was thrown."
+after
+  IO.puts "I run regardless of a throw."
+end
+```
 
 ## Guards
 TODO: how to use guards.<br>
