@@ -35,7 +35,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [Standard postfix](#standard-postfix)
     - [Pipe](#pipe)
     - [String Match](#string-match)
-    - [?](#?)
+    - [? (codepoint)](#-codepoint)
     - [Ternary](#ternary)
   - [Comments](#comments)
   - [Semicolons](#semicolons)
