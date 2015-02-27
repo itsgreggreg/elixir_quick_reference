@@ -368,7 +368,7 @@ Otherwise `false` is returned.
 > "abcd" =~ "ad"     # false
 ```
 
-#### ?
+#### ? (codepoint)
 `?`<br>
 Returns the UTF-8 codepoint of the character immediately to it's right.<br>
 Can only take one character, accepts [Escape Sequences](#escape-sequences).<br>
