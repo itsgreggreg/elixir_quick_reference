@@ -667,7 +667,8 @@ Functions and operators allowed in guard clauses:
 ## Comprehensions
 Loop over any enumerable or bitstring and build another.<br>
 By default they build lists.<br>
-Simple form:
+`generators`, `filters` and `into:` are comma separated. `do` follows [Do, End](#do-end) rules.<br>
+Basic form:
 ```elixir
 # ┌for         ┌Generator       ┌Block
 # ⇣   ┌────────┴────────┐┌──────┴──────┐
@@ -742,8 +743,6 @@ for line <- Enum.take(stream, 5), into: stream do
   String.upcase(line)
 end
 ```
-
-**Note on syntax:** `generators`, `filters` and `into:` are comma separated. `do` follows [Do, End](#do-end) rules.
 
 ## Sigils
 Sigils create structures out of text passed to them.<br>
