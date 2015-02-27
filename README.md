@@ -35,6 +35,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [Standard postfix](#standard-postfix)
     - [Pipe](#pipe)
     - [String Match](#string-match)
+    - [?](#?)
     - [Ternary](#ternary)
   - [Comments](#comments)
   - [Semicolons](#semicolons)
@@ -151,6 +152,7 @@ Strings, being binaries, are concatenated with `<>`.
 
 ```elixir
 > "This is a string."
+> "☀★☂☻♞☯☭☢€→☎♫♎⇧☮♻⌘⌛☘☊♔♕♖☦♠♣♥♦♂♀"  # no problem :)
 > "This is an #{ Atom.to_string(:interpolated) } string."
 > "Where is " <> "my other half?"
 > "multi\nline" == "multi
@@ -354,16 +356,29 @@ hd([1,2,3])
 ```
 
 #### String Match
-`=~` takes a string on the left and on the right either a string or a regular expression.<br>
+`=~`<br>
+Takes a string on the left and on the right either a string or a regular expression.<br>
 If the string on the right is a substring of left, `true` is returned.<br>
 If the regular expression on the right matches the string on the left, `true` is returned.<br>
 Otherwise `false` is returned.
-
 ```elixir
 > "abcd" =~ ~r/c(d)/ # true
 > "abcd" =~ ~r/e/    # false
 > "abcd" =~ "bc"     # true
 > "abcd" =~ "ad"     # false
+```
+
+#### ?
+`?`<br>
+Returns the UTF-8 codepoint of the character immediately to it's right.<br>
+Can only take one character, accepts [Escape Sequences](#escape-sequences).<br>
+**Remember** [Charlists](#charlist) are just lists of UTF-8 codepoints.
+```elixir
+> ?a   # 97
+> ?♫   # 9835
+> ?\s  # 32
+> ??   # 63
+> [?♀, ?!] == '♀!'  # true
 ```
 
 #### Ternary
