@@ -401,23 +401,41 @@ The only required usage is to put more than one statement on the same line. `a =
 This is considered bad style and placing them on seperate lines is much prefered.
 
 ### Do, End
-To call a macro with a single line of code you must structure it like so
+Blocks of code passed to macros start with `do` and end with `end`.
 ```elixir
-#      ⇣   ⇣         ⇣ no end keyword
-if true, do: "True!"
-```
-
-The equivalent in multiple lines of code is
-```elixir
-#       ⇣ ⇣ no comma or colon
 if true do
   "True!"
 end
+
+if true do "True!" end
+
+# inside a module
+def somefunc() do
+  IO.puts "multi line"
+end
+
+if true do
+  "True!"
+else
+  "False!"
+end
 ```
 
-Both of these are syntactic sugar for
+You can pass the block as a single line and without `end` with some extra puctuation.<br>
+```elixir
+#      ⇣   ⇣         ⇣ no end keyword
+if true, do: "True!"
+#      ⇣   ⇣       ⇣     ⇣          ⇣ no end keyword
+if true, do: "True", else: "False!"
+# inside a module
+#             ⇣   ⇣                              ⇣ no end keyword
+def someFunc(), do: IO.puts "look ma, one line!"
+```
+
+Syntactic sugar for
 ```elixir
 if(true, [{:do, "True!"}, {:else, "False!"}])
+def(someFunc(), [{:do, IO.puts "look ma, one line!"}])
 ```
 
 
