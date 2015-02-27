@@ -100,8 +100,8 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 ### Atom
 Constants whose name is their value. <br>
 Are named in this format:
-<!-- :(?:[_0-9a-zA-z]@*)+[!?]{0,1} -->
-![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/50ffe1e533896247fbb6429b72f83cdbb1186a8a/images/atom-naming.png)<br>
+<!-- :[_a-zA-z][a-zA-Z0-9@]*[!?]{0,1} -->
+![Atom Naming](https://rawgit.com/itsgreggreg/elixir_quick_reference/3902d60f917037470180762fd72f5afb38f40782/images/atom-naming.png)<br>
 To use other characters you must quote the atom.<br>
 TODO: Note which characters can be used when quoted.<br>
 Stored in a global table once used and never de-allocated so avoid programmatic creation.<br>
