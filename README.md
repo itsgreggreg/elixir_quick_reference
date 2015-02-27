@@ -222,9 +222,21 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 ```
 
 ### Charlist
- - `?` operator
- - Same [Escape Sequences](#escape-sequences) as String.
- - TODO
+A list of UTF-8 codepoints.<br>
+Can span multiple lines and are delimited with single quotes `'`.<br>
+Have the same [Escape Sequences](#escape-sequences) as String.<br>
+Being lists they are concatenated with `++` and subtracted with `--`.<br>
+You can get the codepoint of a single character with the  `?` operator.
+```elixir
+> 'char list'
+> [108, 105, 115, 116] == 'list'  # true
+> 'turbo' ++ 'pogo'               # 'turbopogo'
+> 'char list' -- 'a l'            # 'christ'
+> hd 'such list' == ?s            # true
+> String.to_char_list "tacosalad" # 'tacosalad'
+> List.to_string 'frijoles'       # "frijoles"
+> [?Y, ?e, ?a, ?h] == 'Yeah'      # true
+```
 
 ### Tuple
 Can be of any size and have elements of any type.<br>
