@@ -218,6 +218,7 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 > length [:a, :b, :c, :d]    # 4
 > Enum.reverse [:a, :b, :c]  # [:c, :b, :a]
 > Enum.member? [:a, :b], :b  # true
+> Enum.join [:a, :b], "_"    # "a_b"
 ```
 
 ### Charlist
