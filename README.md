@@ -665,9 +665,85 @@ Functions and operators allowed in guard clauses:
 ## Anonymous Functions
 
 ## Comprehensions
-  - Multiple lists
-  - Multiple Filters
-  - Into
+Loop over any enumerable or bitstring and build another.<br>
+By default they build lists.<br>
+Simple form:
+```elixir
+# ┌for         ┌Generator       ┌Block
+# ⇣   ┌────────┴────────┐┌──────┴──────┐
+> for num <- [1, 2, 3, 4], do: num * num
+[1, 4, 9, 16]
+```
+
+They can have filters:
+```elixir
+#                                 ┌Filter
+#                        ┌────────┴───────┐
+> for num <- [1, 2, 3, 4], rem(num, 2) == 0, do: num * num
+[4, 16]
+```
+
+Multiple generators:
+```elixir
+#            ┌Generator       ┌Generator
+#     ┌──────┴─────┐┌─────────┴───────┐
+> for num <- [1,2,3], str <- ["a", "b"], do: "#{num}#{str}"
+["1a", "1b", "2a", "2b", "3a", "3b"]
+```
+
+Multiple filters:
+```elixir
+#                                            ┌Filter     ┌Filter
+#                                      ┌─────┴───┐┌──────┴────┐
+> for num <- [1,2,3], str <- ["a", "b"], num !== 3, str !== "a", do: "#{num}#{str}"
+["1b", "2b"]
+```
+
+You can pattern match in generators:
+```elixir
+> for {_, age} <- %{doug: 4, lucy: 6, ralf: 10}, do: age
+[4, 6, 10]
+```
+
+You can build a different data structure with `into`:
+```elixir
+#                             ┌Into a map
+#                        ┌────┴────┐
+> for num <- [1, 2, 3, 4], into: %{}, do: {num, num*num}
+%{1 => 1, 2 => 4, 3 => 9, 4 => 16}
+#                             ┌Into a string
+#                        ┌────┴───┐
+> for num <- [1, 2, 3, 4], into: "", do: "the square of #{num} is #{num * num}. "
+"the square of 1 is 1. the square of 2 is 4. the square of 3 is 9. the square of 4 is 16. "
+```
+
+Enumerating binaries is a breeze though they have a special syntax:
+```elixir
+#                  ┌Binary generator
+#     ┌────────────┴─────────────────┐
+> for <<byte <- <<255, 12, 55, 89>> >>, do: byte
+[255, 12, 55, 89]
+#              ┌Pattern Match on bit size
+#          ┌───┴───┐
+> for <<bit::size(1) <- <<42, 12>> >>, do: bit
+[0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0]
+
+> pixels = <<213, 45, 132, 64, 76, 32, 76, 0, 0, 234, 32, 15>>
+#          ⇣Short hand for bit-size
+> for <<r::8, g::8, b::8 <- pixels >>, do: {r, g, b}
+[{213,45,132},{64,76,32},{76,0,0},{234,32,15}]
+```
+
+Work well with streams:
+```elixir
+# Grabs 5 lines of input and upcases it
+stream = IO.stream(:stdio, :line)
+for line <- Enum.take(stream, 5), into: stream do
+  String.upcase(line)
+end
+```
+
+**Note on syntax:** `generators`, `filters` and `into:` are comma separated. `do` follows [Do, End](#do-end) rules.
 
 ## Sigils
 Sigils create structures out of text passed to them.<br>
