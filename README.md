@@ -289,9 +289,9 @@ Being Lists they:
    - are order as specified
    - can have duplicate elements and multiple elements with the same key
    - are fastest when accessed at the head.
+   - are concatenated with `++` and subtracted with `--`.<br>
 
 Elements can be accessed with `[:key]` notation. The first Element with a matching `:key` will be returned.<br>
-Being lists they are concatenated with `++` and subtracted with `--`.<br>
 2 Keyword Lists are only equal if all elements are equal and in the same order.
 
 ```elixir
