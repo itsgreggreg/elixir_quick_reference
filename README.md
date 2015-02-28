@@ -726,8 +726,8 @@ cond do
 end
 ```
 ### throw/catch
-Inside of a `try` block you can `throw` any data structure and pattern match on it inside a `catch` block.<br>
-`catch` blocks work the same as [case](#case) blocks.
+Inside of a `try` block you can `throw` any data type and pattern match on it inside a `catch` block.<br>
+`catch` blocks work the same as [case](#case) blocks.<br>
 `after` blocks will always run, throw or no throw.
 ```elixir
 try do
