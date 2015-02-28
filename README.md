@@ -34,6 +34,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [Standard infix](#standard-infix)
     - [Standard postfix](#standard-postfix)
     - [= (match)](#-match)
+    - [^ (pin)](#-pin)
     - [Pipe](#pipe)
     - [String Match](#string-match)
     - [? (codepoint)](#-codepoint)
@@ -42,6 +43,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Semicolons](#semicolons)
   - [Do, End](#do-end)
   - [Pattern Matching](#pattern-matching)
+    - [Binaries](#binaries) 
 - [Truthiness](#truthiness)
 - [Modules](#modules)
   - [Declaration](#declaration)
@@ -66,7 +68,6 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 - [Metaprogramming](#metaprogramming)
 - [Processes](#processes)
 - [Structs](#structs)
-- [Pattern Matching](#pattern-matching)
 - [Working with Files](#working-with-files)
 - [Erlang Interoperability](#erlang-interoperability)
 - [iex](#iex)
@@ -382,6 +383,14 @@ Can hold any data structure and can be assigned more than once.
 left `=` right<br>
 Performs a [Pattern Match](#pattern-matching). 
 
+#### ^ (pin)
+Used to pin the value of a variable in the left side of a [Pattern Match](#pattern-matching).
+```elixir
+a = "thirty hams"
+{b, ^a} = {:i_need, "thirty hams"}            # `b` is set to `:i_need`
+{^a, {^a}} = {"thirty hams", {"thirty hams"}} # nothing is set, but the match succedes
+```
+
 #### Pipe
 `|>`<br>
 Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
@@ -523,6 +532,11 @@ a = "thirty hams"
 {b, ^a} = {:i_need, "thirty hams"}            # `b` is set to `:i_need`
 {^a, {^a}} = {"thirty hams", {"thirty hams"}} # nothing is set, but the match succedes
 ```
+
+#### Binaries
+  - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
+  - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
+  - TODO
 
 ## Truthiness
 `nil` and `false` are falsy.<br>
@@ -958,10 +972,6 @@ end
   - implement Map behaviour
   - Pattern matching on structs
   - @derive
-
-## Pattern Matching
- - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
- - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
 
 ## Working with Files
 
