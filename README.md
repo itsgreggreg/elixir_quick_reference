@@ -197,12 +197,33 @@ Written literally with the `~r` [Sigil](#sigils) and can span multiple lines.<br
 Can have a number of modifiers specified directly after the pattern.<br>
 Many functions take a captures option that limits captures.
 
+Modifiers:
+ - `u` enables unicode specific patterns like \p and changes escapes like \w, \W, \s and friends to also match on unicode. It expects valid unicode strings to be given on match
+ - `i` ignore case
+ - `s` dot matches newlines and also set newline to anycrlf.
+ - `m` ^ and $ match the start and end of each line; use \A and \z to match the end or start of the string
+ - `x` whitespace characters are ignored except when escaped and `#` delimits comments
+ - `f` forces the unanchored pattern to match before or at the first newline, though the matched text may continue over the newline
+r - inverts the “greediness” of the regexp
+
+To override newline treatment start the pattern with:
+ - `(*CR)` carriage return
+ - `(*LF)` line feed
+ - `(*CRLF)` carriage return, followed by linefeed
+ - `(*ANYCRLF)` any of the three above
+ - `(*ANY)` all Unicode newline sequences
+
 ```elixir
 > Regex.compile!("caf[eé]") == ~r/caf[eé]/ # true
 > Regex.match?(~r/caf[eé]/, "café")        # true
 > Regex.regex?(~r"caf[eé]")                # true
 > Regex.regex?("caf[eé]")                  # false! string not compiled regex
 > Regex.run(~r/hat: (.*)/, "hat: 🎩", [capture: :all_but_first]) == ["🎩"]  # true
+# Modifiers
+> Regex.match?(~r/mr. bojangles/i, "Mr. Bojangles") # true
+> Regex.compile!("mr. bojangles", "sxi")            # ~r/mr. bojangles/sxi
+# Newline overrides
+> ~r/(*ANY)some\npattern/
 ```
 
 ## Collection Types
