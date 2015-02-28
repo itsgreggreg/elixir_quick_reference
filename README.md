@@ -197,7 +197,7 @@ Written literally with the `~r` [Sigil](#sigils) and can span multiple lines.<br
 Can have a number of modifiers specified directly after the pattern.<br>
 Many functions take a captures option that limits captures.
 
-Modifiers:
+**Modifiers**:
  - `u` enables unicode specific patterns like \p and changes escapes like \w, \W, \s and friends to also match on unicode. It expects valid unicode strings to be given on match
  - `i` ignore case
  - `s` dot matches newlines and also set newline to anycrlf.
@@ -206,7 +206,7 @@ Modifiers:
  - `f` forces the unanchored pattern to match before or at the first newline, though the matched text may continue over the newline
 r - inverts the “greediness” of the regexp
 
-To override newline treatment start the pattern with:
+**To override newline treatment start the pattern with**:
  - `(*CR)` carriage return
  - `(*LF)` line feed
  - `(*CRLF)` carriage return, followed by linefeed
