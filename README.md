@@ -282,15 +282,23 @@ Fast for index-based access, slow for a large number of elements.<br>
 ```
 
 ### Keyword List
-A `List` of 2 element `Tuples` whose first element is an `Atom`.<br>
-They have a special syntactic variant where each `Tuple`s `{ }` are ommitted and the key `Atom` has it's colon on the right side.<br>
-Since they are just `List`s they guarantee order as specified, can have multiple elements with the same key and are fastest when accessed at the head.<br>
+A List of 2 element Tuples where each Tuple's first element is an Atom.<br>
+This atom is refered to as the keyword, or key.<br>
+Have a special concice syntax that omit's the Tuple's brackets and places the key's colon on the right.<br>
+Being Lists they:
+   - are order as specified
+   - can have duplicate elements and multiple elements with the same key
+   - are fastest when accessed at the head.
+
 Elements can be accessed with `[:key]` notation. The first Element with a matching `:key` will be returned.<br>
-Since they are lists they are concatenated with `++` and subtracted with `--`.<br>
-Keyword Lists are only equal if all elements are equal and in the same order.
+Being lists they are concatenated with `++` and subtracted with `--`.<br>
+2 Keyword Lists are only equal if all elements are equal and in the same order.
 
 ```elixir
-> [{:a, "one"}, {:b, 2}] == [a: "one", b: 2]   # true
+# Full Syntax
+> [{:a, "one"}, {:b, 2}]
+# Concice Syntax
+> [a: "one", b: 2]
 > [a: 1] ++ [a: 2, b: 3] == [a: 1, a: 2, b: 3] # true
 > [a: 1, b: 2] == [b: 2, a: 1]         # false! elements are in different order
 > [a: 1, a: 2][:a] == 1                # true
