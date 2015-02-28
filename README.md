@@ -41,6 +41,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Comments](#comments)
   - [Semicolons](#semicolons)
   - [Do, End](#do-end)
+  - [Pattern Matching](#pattern-matching)
 - [Truthiness](#truthiness)
 - [Modules](#modules)
   - [Declaration](#declaration)
@@ -378,7 +379,8 @@ Can hold any data structure and can be assigned more than once.
  - negation `!`. `!true === false`
 
 #### = (match)
- - TODO
+left `=` right<br>
+Performs a [Pattern Match](#pattern-matching). 
 
 #### Pipe
 `|>`<br>
@@ -471,6 +473,56 @@ if(true, [{:do, "True!"}, {:else, "False!"}])
 def(someFunc(), [{:do, IO.puts "look ma, one line!"}])
 ```
 
+### Pattern Matching
+A match has 2 main parts, a **left** side and a **right** side.<br>
+```elixir
+#     ┌Left       ┌Right
+# ┌───┴───┐   ┌───┴──────┐
+  {:one, x} = {:one, :two}
+```
+
+The **right** side is a **data structure** of any kind.<br>
+The **left** side attempts to **match** itself to the **data structure** on the right and **bind** any **variables** to **substructures**.
+
+The simplest **match** has a lone **variable** on the **left** and will **match** anything:
+```elixir
+# in these examples `x` will be set to whatever is on the right
+x = 1
+x = [1,2,3,4]
+x = {:any, "structure", %{:whatso => :ever}}
+```
+
+But you can place the **variables** inside a **structure** so you can **capture** a **substructure**:
+```elixir
+# `x` gets set to only the `substructure` it matches
+{:one, x} = {:one, :two} # `x` is set to `:two` 
+[1,2,p,4] = [1,2,3,4]    # `n` is set to `3`
+[:one, p] = [:one, {:apple, :orange}] # `p` is set to `{:apple, :orange}`
+```
+
+There is also a special `_` **variable** that works exactly like other **variables** but tells elixir, "Make sure something is here, but I don't care exactly what it is.":
+```elixir
+# in all of these examples, `x` gets set to `:two`
+{_, x} = {:one, :two}
+{_, x} = {:three, :two}
+[_,_,x,_] = [1,{2},:two,3]
+```
+    
+If you place a **variable** on the **right**, it's **value** is used:
+```elixir
+#                          ┌Same as writing {"twenty hams"}
+a = {"twenty hams"}        ⇣
+{:i_have, {b}} = {:i_have, a} # `b` is set to "twenty hams"
+```
+   
+In the previous example you are telling elixir: I want to **match** a **structure** that is a **tuple**, and this **tuple's** first element is going to be the atom **:i_have**. This **tuple's** second element is going to be a **tuple**. This **second tuple** is going to have one element and whatever it is I want you to bind it to the variable **b**.
+
+If you want to use the **value** of a **variable** in your structure on the **left** you use the `^` operator:
+```elixir
+a = "thirty hams"
+{b, ^a} = {:i_need, "thirty hams"}            # `b` is set to `:i_need`
+{^a, {^a}} = {"thirty hams", {"thirty hams"}} # nothing is set, but the match succedes
+```
 
 ## Truthiness
 `nil` and `false` are falsy.<br>
