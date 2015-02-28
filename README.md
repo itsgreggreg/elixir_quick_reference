@@ -859,7 +859,7 @@ end
 
 ## Sigils
 Sigils create structures out of text passed to them.<br>
-They take the general form `~type{ content }` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.<br>
+They take the general form `~type| content |m` and can be delimited by `{}`, `[]`, `()`, `//`, `||`, `""`, or `''`.<br>
 Built in sigils:
 
 Creates           | With Interpolation | Without Interpolation
@@ -872,10 +872,10 @@ Regular Expression| r                  | R
 ```elixir
 > a = "Yay!"
 > ~s|Quotes #{a} 'used' "willy nilly.|   # "Quotes Yay! 'used' \"willy nilly."
-> ~S|Not "interpolated" #{a}|            # "Not \"interpolated\" \#{a}"
-> ~c|charlist "with" 'quotes' #{a}|      # 'charlist "with" \'quotes\' Yay!'
-> ~w|a list of words #{a} |              # ["a", "list", "of", "words", "Yay!"]
-> ~W|a list of words #{a} |              # ["a", "list", "of", "words", "\#{a}"]
+> ~S{Not "interpolated" #{a}}            # "Not \"interpolated\" \#{a}"
+> ~c[charlist "with" 'quotes' #{a}]      # 'charlist "with" \'quotes\' Yay!'
+> ~w/a list of words #{a}/               # ["a", "list", "of", "words", "Yay!"]
+> ~W"a list of words #{a}"               # ["a", "list", "of", "words", "\#{a}"]
 ```
 
 You can also define custom Sigils:
