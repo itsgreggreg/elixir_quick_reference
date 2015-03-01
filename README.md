@@ -43,7 +43,8 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Semicolons](#semicolons)
   - [Do, End](#do-end)
   - [Pattern Matching](#pattern-matching)
-    - [Binaries](#binaries) 
+    - [Binaries](#binaries)
+  - [Reserved Words](#reserved-words)
 - [Truthiness](#truthiness)
 - [Modules](#modules)
   - [Declaration](#declaration)
@@ -537,6 +538,11 @@ a = "thirty hams"
   - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
   - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
   - TODO
+
+### Reserved words
+These words are reserved for the language and cannot be used as variables, module or method names.
+
+`__MODULE__`,`__FILE__`,`__DIR__`,`__ENV__`,`__CALLER__`
 
 ## Truthiness
 `nil` and `false` are falsy.<br>
