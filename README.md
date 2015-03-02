@@ -510,7 +510,7 @@ But you can place the **variables** inside a **structure** so you can **capture*
 ```elixir
 # `x` gets set to only the `substructure` it matches
 {:one, x} = {:one, :two} # `x` is set to `:two` 
-[1,2,p,4] = [1,2,3,4]    # `n` is set to `3`
+[1,2,n,4] = [1,2,3,4]    # `n` is set to `3`
 [:one, p] = [:one, {:apple, :orange}] # `p` is set to `{:apple, :orange}`
 ```
 
