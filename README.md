@@ -827,7 +827,7 @@ end
 TODO: how to use guards.<br>
 Functions and operators allowed in guard clauses:
 
- =        | logic | math  | type_checking | tuple        |list     |binary     | Kernel
+ =         | logic | math  | type_checking | tuple        |list     |binary     | Kernel
 -----------|-------|-------|---------------|--------------|---------|-----------|--------
 ==         | or    | +     | is_atom       | elem()       |a `in` b |bit_size() | node()
 !=         | and   | -     | is_binary     | tuple_size() |hd()     |byte_size()| self()
@@ -848,6 +848,55 @@ Functions and operators allowed in guard clauses:
 **Notice** `!`, `&&` and `||` are not allowed in guard clauses.
 
 ## Anonymous Functions
+Closures in which the captured variables are set at definition.<br>
+Are essentially [case](#case) blocks you can pass around.<br>
+Take the general form:
+```elixir
+fn (1, 2, 3) -> IO.inspect 1*2*3
+   (a, b, c) -> IO.inspect [a,b,c]
+end
+```
+Are called with the `.` operator.
+```elixir
+> add_2 = fn num -> num + 2 end
+#      ⇣called with a dot
+> add_2.(127) == 129
+true
+> three = 3
+> add_3 = fn num -> num + three end
+> add_3.(262) == 265
+true
+#   ⇣is our function compromised?
+> three = 7
+#                ⇣no, `three` is still 3 in the function
+> add_3.(262) == 265
+true
+```
+
+Like case blocks, they can have multiple matches, matches can have guards, and do not leak scope:
+```elixir
+> support_method = fn ("suspenders")   -> IO.puts "Hey big spender."
+                      ("belt")         -> IO.puts "Who is the real hero?"
+                      a when is_list a -> Enum.each(a, support_method)
+                      _                -> IO.puts "What is this wizzardry?"
+                   end
+> support_method.(["belt", "suspenders"])
+"Who is the real hero?"
+"Hey big spender."
+> peanut_butter = "smooth"
+#                                      ⇣immediately call
+> fn () -> peanut_butter = "chunky" end.()
+> peanut_butter == "smooth"
+true # scope was not leaked
+```
+
+They cannot have multiple arities (which in case statements wouldn't make sense):
+```elixir
+> fn (a)    -> "One"
+     (a, b) -> "Two"
+  end
+# That's a compile error
+```
 
 ## Comprehensions
 Loop over any enumerable or bitstring and build another.<br>
