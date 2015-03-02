@@ -35,9 +35,10 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [Standard postfix](#standard-postfix)
     - [= (match)](#-match)
     - [^ (pin)](#-pin)
-    - [Pipe](#pipe)
-    - [String Match](#string-match)
+    - [|> (pipe)](#-pipe)
+    - [=~ (string match)](#string-match)
     - [? (codepoint)](#-codepoint)
+    - [& (capture)](#-capture)
     - [Ternary](#ternary)
   - [Comments](#comments)
   - [Semicolons](#semicolons)
@@ -392,7 +393,7 @@ a = "thirty hams"
 {^a, {^a}} = {"thirty hams", {"thirty hams"}} # nothing is set, but the match succedes
 ```
 
-#### Pipe
+#### |> (pipe)
 `|>`<br>
 Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
 The statement on the left can be on the preceeding line of code.
@@ -404,7 +405,7 @@ hd([1,2,3])
 |> IO.inspect  # "1"
 ```
 
-#### String Match
+#### =~ (string match)
 `=~`<br>
 Takes a string on the left and on the right either a string or a regular expression.<br>
 If the string on the right is a substring of left, `true` is returned.<br>
@@ -429,6 +430,9 @@ Can only take one character, accepts [Escape Sequences](#escape-sequences).<br>
 > ??   # 63
 > [?♀, ?!] == '♀!'  # true
 ```
+
+#### & (capture)
+ - TODO
 
 #### Ternary
 Elixir has no ternary opperator. The same effect though can be achieved with the `if` macro.
