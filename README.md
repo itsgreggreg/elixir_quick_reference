@@ -36,7 +36,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [= (match)](#-match)
     - [^ (pin)](#-pin)
     - [|> (pipe)](#-pipe)
-    - [=~ (string match)](#string-match)
+    - [=~ (string match)](#-string-match)
     - [? (codepoint)](#-codepoint)
     - [& (capture)](#-capture)
     - [Ternary](#ternary)
