@@ -542,7 +542,7 @@ a = "thirty hams"
 ### Reserved words
 These words are reserved for the language and cannot be used as variables, module or method names.
 
-`__MODULE__`,`__FILE__`,`__DIR__`,`__ENV__`,`__CALLER__`
+`nil`, `true`, `false`, `__MODULE__`,`__FILE__`,`__DIR__`,`__ENV__`,`__CALLER__`
 
 ## Truthiness
 `nil` and `false` are falsy.<br>
