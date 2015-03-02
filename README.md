@@ -894,7 +894,7 @@ Like case blocks, they can have multiple matches, matches can have guards, and d
 true # scope was not leaked
 ```
 
-They cannot have multiple arities (which in case statements wouldn't make sense):
+They **cannot** have multiple arities (which in case statements wouldn't make sense):
 ```elixir
 > fn (a)    -> "One"
      (a, b) -> "Two"
