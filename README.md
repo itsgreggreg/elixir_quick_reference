@@ -99,7 +99,7 @@ Can be specified in base 10, hex, or binary. All are stored as base 10.
 ### Float
 64bit double precision. Can be specified with an exponent. Cannot begin or end with `.`.
 
-```elixira
+```elixir
 > 1.2345
 > 0.001 == 1.0e-3 # true
 > .001            # syntax error!
