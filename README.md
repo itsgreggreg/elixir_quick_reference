@@ -352,7 +352,25 @@ That's it.<br>
 ```
 
 ### Streams
- - TODO
+Lazy enumerables.<br>
+Are created out of enumerables with functions in the `Stream` module.<br>
+Elements are not computed until a method from the `Enum` module is called on them.<br>
+```elixir
+> a = Stream.cycle 'abc'
+#Function<47.29647706/2 in Stream.unfold/2> # Infinate Stream created
+> Enum.take a, 10                           # Enum.take computes the 10 elements
+'abcabcabca'
+```
+
+With [Stream.unfold/2](http://elixir-lang.org/docs/stable/elixir/Stream.html#unfold/2) you can create an arbitrary stream.
+```
+> s = Stream.unfold( 5, 
+  fn 0 -> nil            # returning nil halts the stream
+     n -> {n, n-1}       # return format {next-val, rest}
+  end)
+> Enum.to_list(s)
+[5, 4, 3, 2, 1]
+```
 
 ## Sytnax
 
