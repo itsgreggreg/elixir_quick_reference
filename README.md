@@ -511,6 +511,15 @@ A match has 2 main parts, a **left** side and a **right** side.<br>
 #     ┌Left       ┌Right
 # ┌───┴───┐   ┌───┴──────┐
   {:one, x} = {:one, :two}
+#        ┌Right
+#    ┌───┴──────┐  
+case {:one, :two} do
+#     ┌Left
+# ┌───┴───┐
+  {:one, x} -> IO.puts x
+# ┌Left
+  _         -> IO.puts "no other match"
+end
 ```
 
 The **right** side is a **data structure** of any kind.<br>
