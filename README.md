@@ -5,6 +5,7 @@ Elixir Website: http://elixir-lang.org/<br>
 Elixir Documentation: http://elixir-lang.org/docs.html<br>
 Elixir Source: https://github.com/elixir-lang/elixir<br>
 Try Elixir Online: http://try-elixir.herokuapp.com/<br>
+Elixir Regex editor/testor: http://www.elixre.uk/<br>
 This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
