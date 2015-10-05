@@ -1072,7 +1072,7 @@ Erlang modules can be called by prepnding them with a colon.
 
 ## iex
  - `-S mix`
- - `h Moule` \ `h function`
+ - `h Module` \ `h function`
  - `c filename`
  - Tab completion
 
