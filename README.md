@@ -33,7 +33,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Variables](#variables)
   - [Operators](#operators)
     - [Standard infix](#standard-infix)
-    - [Standard postfix](#standard-postfix)
+    - [Standard prefix](#standard-prefix)
     - [= (match)](#-match)
     - [^ (pin)](#-pin)
     - [|> (pipe)](#-pipe)
@@ -328,7 +328,7 @@ Maps can be of any size and are fastest for key based lookup.
 > %{:a => 1, 1 => ["list"], [2,3,4] => {"a", "b"}}
 > %{:a => 1, :b => 2} == %{a: 1, b: 2}              # true
 > %{a: "one", b: "two", a: 1} == %{a: 1, b: "two"}  # true
-> %{a: "one", b: "two"} == %{b: "two", a: "one"}    # ture
+> %{a: "one", b: "two"} == %{b: "two", a: "one"}    # true
 > %{a: "one", b: "two"}[:b]                         # "two"
 > %{a: "one", b: "two"}.b                           # "two"
 > %{a: "one", a: 1} == %{a: 1}                      # true
@@ -397,7 +397,7 @@ Can hold any data structure and can be assigned more than once.
  - Boolean only Logic, short-circuiting `and` and `or`. (Only left side must be boolean)
  - Math `+`, `-`, `*`, `/`
 
-#### Standard postfix
+#### Standard prefix
  - negation `!`. `!true === false`
 
 #### = (match)
