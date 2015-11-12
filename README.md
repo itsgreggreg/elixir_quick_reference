@@ -29,7 +29,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Map](#map)
   - [Range](#range)
   - [Streams](#streams)
-- [Sytnax](#sytnax)
+- [Syntax](#syntax)
   - [Variables](#variables)
   - [Operators](#operators)
     - [Standard infix](#standard-infix)
@@ -373,7 +373,7 @@ With [Stream.unfold/2](http://elixir-lang.org/docs/stable/elixir/Stream.html#unf
 [5, 4, 3, 2, 1]
 ```
 
-## Sytnax
+## Syntax
 
 ### Variables
 Are declared and initialized upon use.<br>
