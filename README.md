@@ -868,6 +868,7 @@ end
 
 ## Guards
 TODO: how to use guards.<br>
+Errors generated in guards are swallowed and simply cause the guard to fail.<br>
 Functions and operators allowed in guard clauses:
 
  =         | logic | math  | type_checking | tuple        |list     |binary     | Kernel
