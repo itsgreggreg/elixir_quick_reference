@@ -48,6 +48,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [Binaries](#binaries)
   - [Reserved Words](#reserved-words)
 - [Truthiness](#truthiness)
+- [Sorting](#sorting)
 - [Modules](#modules)
   - [Declaration](#declaration)
   - [Module Functions](#module-functions)
@@ -584,6 +585,15 @@ Everything else is truthy.
 ```elixir
 > !!nil  # false
 > !!0    # true
+```
+
+## Sorting
+Any types can be compared using comparison operators.<br>
+`number < atom < reference < functions < port < pid < tuple < maps < list < bitstring`
+
+```elixir
+10000 < :five == true
+"something" > &div/2 == true
 ```
 
 ## Modules
