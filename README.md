@@ -398,7 +398,8 @@ Can hold any data structure and can be assigned more than once.
  - Math `+`, `-`, `*`, `/`
 
 #### Standard prefix
- - negation `!`. `!true === false`
+ - Negation, any type `!`, `!1 == false`
+ - Negation, boolean only `not`, `not is_atom(5) == true`
 
 #### = (match)
 left `=` right<br>
