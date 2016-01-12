@@ -260,7 +260,7 @@ List implements the enumerable protocol so we use Enum for many common operation
 
 ### Charlist
 A [List](#list) of UTF-8 codepoints.<br>
-Other than syntax they are exactly the same as Lists and are not a unique class.
+Other than syntax they are exactly the same as Lists and are not a unique class.<br>
 Can span multiple lines and are delimited with single quotes `'`.<br>
 Have the same [Escape Sequences](#escape-sequences) as String.<br>
 
