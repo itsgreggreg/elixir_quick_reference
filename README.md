@@ -259,10 +259,10 @@ List implements the enumerable protocol so we use Enum for many common operation
 ```
 
 ### Charlist
-A list of UTF-8 codepoints.<br>
+A [List](#list) of UTF-8 codepoints.<br>
 Can span multiple lines and are delimited with single quotes `'`.<br>
 Have the same [Escape Sequences](#escape-sequences) as String.<br>
-Being lists they are concatenated with `++` and subtracted with `--`.<br>
+
 You can get the codepoint of a single character with the  `?` operator.
 ```elixir
 > 'char list'
