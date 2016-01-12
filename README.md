@@ -264,7 +264,6 @@ Other than syntax they are exactly the same as Lists and are not a unique class.
 Can span multiple lines and are delimited with single quotes `'`.<br>
 Have the same [Escape Sequences](#escape-sequences) as String.<br>
 
-You can get the codepoint of a single character with the  `?` operator.
 ```elixir
 > 'char list'
 > [108, 105, 115, 116] == 'list'  # true
