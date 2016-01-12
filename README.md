@@ -241,7 +241,8 @@ They are enclosed in `[ ]` and elements are comma separated.<br>
 Concatenated with `++` and subtracted with `--`.<br>
 Can be constructed with the cons operator `|`.<br>
 Best for sequential access, fastest when elements are added and subtracted from the head.<br>
-Instead of building a list by adding to its tail, add to the head and reverse the list.
+Instead of building a list by adding to its tail, add to the head and reverse the list.<br>
+List implements the enumerable protocol so we use Enum for many common operations.
 
 ```elixir
 > [1, 2, 3.4, "a", "b", :c, [:d]]
@@ -254,6 +255,7 @@ Instead of building a list by adding to its tail, add to the head and reverse th
 > Enum.reverse [:a, :b, :c]  # [:c, :b, :a]
 > Enum.member? [:a, :b], :b  # true
 > Enum.join [:a, :b], "_"    # "a_b"
+> Enum.at [:a, :b, :c], 1    # :b
 ```
 
 ### Charlist
