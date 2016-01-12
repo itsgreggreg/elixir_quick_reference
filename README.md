@@ -655,8 +655,8 @@ defmodule MyModule do
   end
 end
 
-> MyModule.printer("'sup", "y'all?")  # "'sup y'all?"
-> MyModule.printer("greetings")       # "greetings earthlings"
+> MyModule.greet("'sup", "y'all?")  # "'sup y'all?"
+> MyModule.greet("greetings")       # "greetings earthlings"
 ```
 
 Module functions can be defined multiple times to support different configurations of arguments.
