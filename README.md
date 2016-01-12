@@ -52,6 +52,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 - [Modules](#modules)
   - [Declaration](#declaration)
   - [Module Functions](#module-functions)
+  - [Private Functions](#private-functions)
   - [Working with other modules](#working-with-other-modules)
   - [Attributes](#attributes)
   - [Documentation](#documentation)
@@ -699,6 +700,20 @@ Module function definitions can have [Guards](#guards).
 ```elixir
 def square(n) when is_number(n), do: n * n
 def square(_), do: raise "not a number"
+```
+
+### Private Functions
+To make a function private to a module use `defp` instead of `def`.
+
+```elixir
+defmodule ModA do
+  defp hi, do: IO.puts "Hello from ModA"
+  def say_hi, do: hi
+end
+ModA.say_hi
+# Hello from ModA
+ModA.hi
+# ** (UndefinedFunctionError) undefined function ModA.hi/0 ModA.hi()
 ```
 
 ### Working with other modules
