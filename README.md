@@ -77,7 +77,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 - [Structs](#structs)
 - [Working with Files](#working-with-files)
 - [Erlang Interoperability](#erlang-interoperability)
-- [iex](#iex)
+- [IEx](#IEx)
 - [Mix](#mix)
   - [Applications](#applications)
   - [Tasks](#tasks)
@@ -1123,10 +1123,25 @@ Erlang modules can be called by prepnding them with a colon.
 |> Integer.to_string(16) # "62A3326DEDE3EE38C9C85ED6EC87FD888A130D24"
 ```
 
-## iex
+## IEx
+Interactive Elixir. An Elixir REPL that comes with your Elixir install<br>
+
+### Running
+run `iex` from a command prompt to enter iex.<br>
+`iex some_file.ex` will compile ./some_file.ex and load it into iex.<br>
+
+### Using
+iex has built in tab completion. Press tab at an empty prompt to see all functions available.
+
+#### Some useful functions
+ - h/0 : Documentation for IEx helpers
+ - h/1 : Documentation for a Module or Function
+ - i/1 : Inforamiton about a value
+ - c/1 : Compile and load a file
+ - r/1 : Reload a module
+
+#####TODO:
  - `-S mix`
- - `h Module` \ `h function`
- - `c filename`
  - Tab completion
 
 ## Mix
