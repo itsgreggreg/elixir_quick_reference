@@ -42,6 +42,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
     - [? (codepoint)](#-codepoint)
     - [& (capture)](#-capture)
     - [Ternary](#ternary)
+    - [in](#in)
   - [Comments](#comments)
   - [Semicolons](#semicolons)
   - [Do, End](#do-end)
@@ -473,6 +474,17 @@ Elixir has no ternary opperator. The same effect though can be achieved with the
 ```elixir
 > a = if true, do: "True!", else: "False!"
 > a == "True!"  # true
+```
+
+#### in
+left `in` right.<br>
+Used to check if the **enumerable** on the right contains the data structure on the left.<br>
+Right hand side must implement the Enumerable Protocol.
+
+```elixir
+> :b in [:a, :b, :c] # true
+> [:c] in [1,3,[:c]] # true
+> :ok in {:ok} # ERROR: protocol Enumerable not implemented for {:ok}
 ```
 
 ### Comments
