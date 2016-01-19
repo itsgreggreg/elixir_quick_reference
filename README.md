@@ -604,7 +604,7 @@ Ranges can be pattern matched if both their values are integers.
 min..max = 20..5000
 min == 20    # true
 max == 5000  # true
-min.max == 1..10.0 # Thats an Argument Error
+min..max == 1..10.0 # Thats an Argument Error
 ```
 
 ### Reserved words
