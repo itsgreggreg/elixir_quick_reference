@@ -598,6 +598,15 @@ a = "thirty hams"
   - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
   - TODO
 
+#### Ranges
+Ranges can be pattern matched if both their values are integers.
+```elixir
+min..max = 20..5000
+min == 20    # true
+max == 5000  # true
+min.max == 1..10.0 # Thats an Argument Error
+```
+
 ### Reserved words
 These words are reserved for the language and cannot be used as variables, module or method names.
 
