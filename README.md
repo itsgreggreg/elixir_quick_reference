@@ -77,7 +77,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 - [Structs](#structs)
 - [Working with Files](#working-with-files)
 - [Erlang Interoperability](#erlang-interoperability)
-- [IEx](#IEx)
+- [IEx](#iex)
 - [Mix](#mix)
   - [Applications](#applications)
   - [Tasks](#tasks)
