@@ -80,6 +80,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Applications](#applications)
   - [Tasks](#tasks)
 - [Tests](#tests)
+- [Style Guide](#style-guide)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -1153,6 +1154,13 @@ defmodule MyModuleTest do
   end
 end
 ```
+
+## Style Guide
+ - Module, record, protocol and behaviour names start with an initial cap and are BumpyCase.
+   - Ex: MyModule
+ - All other identifires start with a lowercase letter or an underscore and are snake_case.
+   - Ex: in_the_air_tonight
+ - For indentation use 2 spaces. No Tabs.
 
 <hr>
 **Notes**
