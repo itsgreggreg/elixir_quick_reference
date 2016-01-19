@@ -17,6 +17,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Float](#float)
   - [Atom](#atom)
   - [Boolean](#boolean)
+  - [Nil](#nil)
   - [Binary](#binary)
   - [String](#string)
     - [Escape Sequences](#escape-sequences)
@@ -137,6 +138,14 @@ Stored in a global table once used and never de-allocated so avoid programmatic 
 > is_boolean(:true)  # true
 > is_atom(false)     # true
 > is_boolean(:True)  # false!
+```
+
+### Nil
+`nil` is syntactic sugar for `:nil` and is not a special type.
+
+```elixir
+> nil == :nil  # true
+> is_atom(nil) # true
 ```
 
 ### Binary
@@ -583,12 +592,14 @@ These words are reserved for the language and cannot be used as variables, modul
 `nil`, `true`, `false`, `__MODULE__`,`__FILE__`,`__DIR__`,`__ENV__`,`__CALLER__`
 
 ## Truthiness
-`nil` and `false` are falsy.<br>
+`:nil` and `:false` are falsy.<br>
+`nil` and `false` are syntactic sugar for `:nil` and `:false`.<br>
 Everything else is truthy.
 
 ```elixir
 > !!nil  # false
 > !!0    # true
+> nil || :nil || false || :false || 1 # 1
 ```
 
 ## Sorting
