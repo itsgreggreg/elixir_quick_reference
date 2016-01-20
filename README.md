@@ -28,7 +28,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Tuple](#tuple)
   - [Keyword List](#keyword-list)
   - [Map](#map)
-  - [Struct](#strunct)
+  - [Struct](#struct)
   - [Range](#range)
   - [Streams](#streams)
 - [Syntax](#syntax)
