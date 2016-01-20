@@ -28,6 +28,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [Tuple](#tuple)
   - [Keyword List](#keyword-list)
   - [Map](#map)
+  - [Struct](#strunct)
   - [Range](#range)
   - [Streams](#streams)
 - [Syntax](#syntax)
@@ -354,6 +355,23 @@ Maps can be of any size and are fastest for key based lookup.
 > Map.put( %{a: 1}, :b, 2 ) == %{a: 1, b: 2}        # true
 > Kernel.get_in # TODO
 > Kernel.put_in # TODO
+```
+
+### Struct
+Structs can be thought of as bare Maps with pre-defined keys, default values and where the keys must be atoms.<br>
+Structs are defined at the top level of a Module and take the Module's name.<br>
+Structs do not implement the Access or Enumerable protocol and can be considered bare Maps.<br>
+Structs have a special field called `__struct__` that holds the name of the struct.
+
+```elixir
+defmodule City do
+  defstruct name: "New Orleans", founded: 1718
+end
+nola = %City{}
+chi =  %City{name: "Chicago", founded: 1833}
+nola.name   # "New Orleans"
+chi.founded # 1833
+nola.__struct__ # City
 ```
 
 ### Range
