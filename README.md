@@ -397,7 +397,7 @@ Elements are not computed until a method from the `Enum` module is called on the
 ```
 
 With [Stream.unfold/2](http://elixir-lang.org/docs/stable/elixir/Stream.html#unfold/2) you can create an arbitrary stream.
-```
+```elixir
 > s = Stream.unfold( 5, 
   fn 0 -> nil            # returning nil halts the stream
      n -> {n, n-1}       # return format {next-val, rest}
