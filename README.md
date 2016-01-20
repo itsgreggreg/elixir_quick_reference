@@ -776,8 +776,22 @@ end
 `alias SomeVery.Long.ModuleName, as: SVLMN` is used simply to shorten a module name to cut down on typing.
 
 ### Attributes
- - inlined by compiler
+Pieces of data that can be thought of as metadata or constants for a module.<br>
+They are inlined by the compiler and cannot be changed at runtime.<br>
+They can be set multiple times and the value used will be the value set when the function is defined.
+
+```elixir
+defmodule ModA do
+  @name "April"
+  def first, do: @name
+  @name "O'Neal"
+  def last, do: @name
+end
+```
+
+TODO:
  - @external_resource
+ - Better explanation of attributes in relation to metaprogramming
 
 ### Documentation
 Elixir has documentation built in and you can document your modules and functions with Attributes. <br>
