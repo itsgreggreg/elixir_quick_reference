@@ -752,10 +752,28 @@ ModA.hi
 ```
 
 ### Working with other modules
- - import
- - require
- - use
- - alias
+Inside of a module you can use one of the 4 directives to interact with other modules.
+#### import
+`import SomeModule` brings all modules and macros of SomeModule into the enclosing module so you can use them un-namespaced<br>
+`import` can take either an `only:` or `except:` list in which you specify functions and macros to include.<br>
+Alternatively `import SomeModule, only:` can take `:functions` or `:macros` to specify only those.
+```elixir
+def ModA do
+  import ModB  # All Functions and Macros in ModB
+  import ModB, except: [destroy_planet: 1] # All Functions and Macros except destroy_planet/1
+  import ModB, only: :functions # All functions, no macros
+  import ModB, only: [say_hi: 0, fibonacci, 1] # Only the specified functions or macros
+end
+```
+ 
+#### require
+`require SomeModule` allows you to use macros of SomeModule. It also makes sure that SomeModule is compiled before the enclosing module.
+  
+#### use
+`use SomeModule` calls a macro on SomeModule called __using__ and nothing else. It is often used to perform setup for metaprogramming.
+
+#### alias
+`alias SomeVery.Long.ModuleName, as: SVLMN` is used simply to shorten a module name to cut down on typing.
 
 ### Attributes
  - inlined by compiler
