@@ -593,6 +593,19 @@ a = "thirty hams"
 {^a, {^a}} = {"thirty hams", {"thirty hams"}} # nothing is set, but the match succedes
 ```
 
+#### Maps
+Individual keys can be matched in Maps like so:
+```elixir
+nola = %{ name: "New Orleans", founded: 1718 }
+%{name: city_name} = nola # city_name now equals "New Orleans"
+%{name: _, founded: city_founded} = nola # Map must have both a name and a founded key
+```
+You can use the pin operator (^) to match on variables:
+```elixir
+field = "founded"
+%{^field: city_founded} = nola # city_founded now equals 1718
+```
+
 #### Binaries
   - `<< size::8, rest::binary>> = <<3,0,25,1,1,2,1,6,4,3>>`
   - `<< data::size(size)-unit(16)-binary, rest::binary>> = rest`
