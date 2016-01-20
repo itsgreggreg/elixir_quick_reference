@@ -770,7 +770,7 @@ end
 `require SomeModule` allows you to use macros of SomeModule. It also makes sure that SomeModule is compiled before the enclosing module.
   
 #### use
-`use SomeModule` calls a macro on SomeModule called __using__ and nothing else. It is often used to perform setup for metaprogramming.
+`use SomeModule` calls a macro on SomeModule called \_\_using\_\_ and nothing else. It is often used to perform setup for metaprogramming.
 
 #### alias
 `alias SomeVery.Long.ModuleName, as: SVLMN` is used simply to shorten a module name to cut down on typing.
