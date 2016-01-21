@@ -375,14 +375,18 @@ nola.__struct__ # City
 ```
 
 ### Range
-Used to generate an enumeration between start and end integers.
-That's it.<br>
+Used to specify the first and last elements of something.<br>
+Just a Struct of type Range with a `first` field and a `last` field.<br>
+Have a special `..` creation syntax but can also be created like any other struct.
 
 ```elixir
-> 5..10
-> Range.new(5, 10) == 5..10 	# true
-> Range.range?(5..10)           # true
-> Enum.each(5..10, fn(n) -> n*n end) # prints all the squares
+> a = 5..10
+> b = Range.new(5, 10)
+> c = %Range{first: 5, last: 10}
+> Range.range?(c)   # true
+> Enum.each(5..10, fn(n) -> n*n end) # prints all the squares of 5..10
+> Map.keys(5..10)   # [:__struct__, :first, :last]
+> (5..10).first     # 5
 ```
 
 ### Streams
