@@ -1156,6 +1156,14 @@ Regular Expression| r                  | R
 > ~W"a list of words #{a}"               # ["a", "list", "of", "words", "\#{a}"]
 ```
 
+The `~w` and `~W` sigils can take modifier to specify which type of value to create, `a`, `c`, or `s` for `atom` `charlist` or `string`.
+
+```elixir
+> ~w|alpha bravo charlie|a   # [:alpha, :bravo, :charlie]
+> ~w|alpha bravo charlie|c   # ['alpha', 'bravo', 'charlie']
+> ~w|alpha bravo charlie|s   # ["alpha, "bravo, "charlie"]
+```
+
 You can also define custom Sigils:
 ```elixir
 defmodule MySigil do
