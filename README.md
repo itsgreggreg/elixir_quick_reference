@@ -1220,13 +1220,12 @@ iex has built in tab completion. Press tab at an empty prompt to see all functio
 #### Some useful functions
  - h/0 : Documentation for IEx helpers
  - h/1 : Documentation for a Module or Function
- - i/1 : Inforamiton about a value
+ - i/1 : Inforamtion about a value
  - c/1 : Compile and load a file
  - r/1 : Reload a module
 
-#####TODO:
+TODO:<br>
  - `-S mix`
- - Tab completion
 
 ## Mix
 Task runner, build tool, testing harness.<br>
