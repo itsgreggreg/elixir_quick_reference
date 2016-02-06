@@ -305,7 +305,7 @@ Fast for index-based access, slow for a large number of elements.<br>
 ### Keyword List
 A List of 2 element Tuples where each Tuple's first element is an Atom.<br>
 This atom is refered to as the keyword, or key.<br>
-Have a special concice syntax that omit's the Tuple's brackets and places the key's colon on the right.<br>
+Have a special concice syntax that omits the Tuple's brackets and places the key's colon on the right.<br>
 Being Lists they:
    - are order as specified
    - can have duplicate elements and multiple elements with the same key
@@ -452,7 +452,7 @@ a = "thirty hams"
 
 #### |> (pipe)
 `|>`<br>
-Takes the result of a statement on it's left and passes as the first argument to the function on it's right.<br>
+Takes the result of a statement on its left and passes as the first argument to the function on its right.<br>
 The statement on the left can be on the preceeding line of code.
 ```elixir
 > [1,2,3] |> hd |> Integer.to_string |> IO.inspect # "1"
@@ -477,7 +477,7 @@ Otherwise `false` is returned.
 
 #### ? (codepoint)
 `?`<br>
-Returns the UTF-8 codepoint of the character immediately to it's right.<br>
+Returns the UTF-8 codepoint of the character immediately to its right.<br>
 Can only take one character, accepts [Escape Sequences](#escape-sequences).<br>
 **Remember** [Charlists](#charlist) are just lists of UTF-8 codepoints.
 ```elixir
@@ -599,7 +599,7 @@ There is also a special `_` **variable** that works exactly like other **variabl
 [_,_,x,_] = [1,{2},:two,3]
 ```
     
-If you place a **variable** on the **right**, it's **value** is used:
+If you place a **variable** on the **right**, its **value** is used:
 ```elixir
 #                          ┌Same as writing {"twenty hams"}
 a = {"twenty hams"}        ⇣
