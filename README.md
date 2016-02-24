@@ -4,7 +4,7 @@ A quick reference for the Elixir programming Language and standard library.
 Elixir Website: http://elixir-lang.org/<br>
 Elixir Documentation: http://elixir-lang.org/docs.html<br>
 Elixir Source: https://github.com/elixir-lang/elixir<br>
-Try Elixir Online: http://try-elixir.herokuapp.com/<br>
+Try Elixir Online: https://glot.io/new/elixir
 Elixir Regex editor/testor: http://www.elixre.uk/<br>
 This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
 
