@@ -69,6 +69,7 @@ This Document: https://github.com/itsgreggreg/elixir_quick_reference<br>
   - [case](#case)
   - [cond](#cond)
   - [throw/catch](#throwcatch)
+  - [with](#with)
 - [Guards](#guards)
 - [Anonymous Functions](#anonymous-functions)
 - [Comprehensions](#comprehensions)
@@ -982,6 +983,9 @@ after
   IO.puts "I run regardless of a throw."
 end
 ```
+
+### with
+TODO
 
 ## Guards
 TODO: how to use guards.<br>
