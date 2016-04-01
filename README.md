@@ -985,7 +985,32 @@ end
 ```
 
 ### with
-TODO
+Takes a series of pattern matches, runs them in order, if all pattern matches succeed it returns its `do` block. If a pattern match doesn't succeed, the non-matching value is returned and `with` is exited.<br>
+Variables assigned in a `with` block do not leak into outer scope.<br>
+A comma must come after every match.
+
+```elixir
+  nums = [8,13,44]
+#                 ┌left arrow           ┌comma
+#     match left  |     match right     |
+#      ┌───┴────┐ ⇣  ┌───────┴─────────┐⇣
+  with {:ok, num} <- Enum.fetch(nums, 2),
+       "44"       <- Integer.to_string(num),
+  do: "it was 44"
+
+# From the docs
+opts = %{width: 10, height: 15}
+with {:ok, width} <- Map.fetch(opts, :width),
+     {:ok, height} <- Map.fetch(opts, :height),
+do: {:ok, width * height}
+# returns {:ok, 150}
+  
+opts = %{width: 10}
+with {:ok, width} <- Map.fetch(opts, :width),
+     {:ok, height} <- Map.fetch(opts, :height),
+do: {:ok, width * height}
+# returns :error as that's what Map.fetch returns whene a key is not present.
+```
 
 ## Guards
 TODO: how to use guards.<br>
