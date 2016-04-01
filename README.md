@@ -1009,7 +1009,7 @@ opts = %{width: 10}
 with {:ok, width} <- Map.fetch(opts, :width),
      {:ok, height} <- Map.fetch(opts, :height),
 do: {:ok, width * height}
-# returns :error as that's what Map.fetch returns whene a key is not present.
+# returns :error as that's what Map.fetch returns when a key is not present.
 ```
 
 ## Guards
