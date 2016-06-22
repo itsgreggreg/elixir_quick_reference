@@ -493,7 +493,7 @@ Can only take one character, accepts [Escape Sequences](#escape-sequences).<br>
  - TODO
 
 #### Ternary
-Elixir has no ternary opperator. The same effect though can be achieved with the `if` macro.
+Elixir has no ternary operator. The same effect though can be achieved with the `if` macro.
 ```elixir
 > a = if true, do: "True!", else: "False!"
 > a == "True!"  # true
