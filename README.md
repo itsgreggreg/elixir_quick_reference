@@ -986,6 +986,7 @@ end
 
 ### with
 Takes a series of pattern matches, runs them in order, if all pattern matches succeed it returns its `do` block. If a pattern match doesn't succeed, the non-matching value is returned and `with` is exited.<br>
+You can supply an `else` block that essentially functions as a `case` block for an uncussessful match.<br>
 Variables assigned in a `with` block do not leak into outer scope.<br>
 A comma must come after every match.
 
@@ -1010,6 +1011,10 @@ with {:ok, width} <- Map.fetch(opts, :width),
      {:ok, height} <- Map.fetch(opts, :height),
 do: {:ok, width * height}
 # returns :error as that's what Map.fetch returns when a key is not present.
+# ┌─ Or you can catch the error in an else block
+else
+  :error -> "A key wasn't found!"
+
 ```
 
 ## Guards
