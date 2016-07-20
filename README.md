@@ -849,7 +849,7 @@ end
 
 ## Errors
 Only to be used in exceptional circumstances, not for control flow.<br>
-Built in errors are listed here: http://elixir-lang.org/docs/v1.0/elixir/overview.html#exceptions_summary<br>
+Built in errors are listed in the docs: http://elixir-lang.org/docs/stable/elixir/ArgumentError.html . They're on the left.
 
 ### Raise
 `raise` a runtime error:
