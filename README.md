@@ -999,6 +999,12 @@ A comma must come after every match.
        "44"       <- Integer.to_string(num),
   do: "it was 44"
 
+# Paterns can take guards
+with a when is_nil(a) <- nil,
+do: "Accepts guards"
+else
+  _ -> "Does not accept guards"
+
 # From the docs
 opts = %{width: 10, height: 15}
 with {:ok, width} <- Map.fetch(opts, :width),
