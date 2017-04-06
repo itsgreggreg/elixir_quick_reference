@@ -1028,23 +1028,23 @@ TODO: how to use guards.<br>
 Errors generated in guards are swallowed and simply cause the guard to fail.<br>
 Functions and operators allowed in guard clauses:
 
- =         | logic | math  | type_checking | tuple        |list     |binary     | Kernel
------------|-------|-------|---------------|--------------|---------|-----------|--------
-==         | or    | +     | is_atom       | elem()       |a `in` b |bit_size() | node()
-!=         | and   | -     | is_binary     | tuple_size() |hd()     |byte_size()| self()
-===        | not   | *     | is_bitstring  |              |tl()     |           |
-!==        |       | /     | is_boolean    |              |length() |           |
->          |       |abs()  | is_exception  ||||
-<          |       |div()  | is_float      ||||
-<=         |       |float()| is_function   ||||
->=         |       |rem()  | is_integer    ||||
-           |       |round()| is_nil        ||||
-           |       |trunc()| is_list       ||||
-           |       |       | is_number     ||||
-           |       |       | is_pid        ||||
-           |       |       | is_port       ||||
-           |       |       | is_reference  ||||
-           |       |       | is_tuple      ||||
+ =         | logic | math  | type_checking | map       | tuple      |list     |binary     | Kernel
+-----------|-------|-------|---------------|-----------|------------|---------|-----------|--------
+==         | or    | +     | is_atom       | map_size()|elem()      |a `in` b |bit_size() | node()
+!=         | and   | -     | is_binary     |           |tuple_size()|hd()     |byte_size()| self()
+===        | not   | *     | is_bitstring  |           |            |tl()     |           |
+!==        |       | /     | is_boolean    |           |            |length() |           |
+\>         |       |abs()  | is_exception  |||||
+\<         |       |div()  | is_float      |||||
+\<=        |       |float()| is_function   |||||
+\>=        |       |rem()  | is_integer    |||||
+           |       |round()| is_nil        |||||
+           |       |trunc()| is_list       |||||
+           |       |       | is_number     |||||
+           |       |       | is_pid        |||||
+           |       |       | is_port       |||||
+           |       |       | is_reference  |||||
+           |       |       | is_tuple      |||||
 
 **Notice** `!`, `&&` and `||` are not allowed in guard clauses.
 
