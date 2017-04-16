@@ -1,4 +1,4 @@
-#Elixir Quick Reference
+# Elixir Quick Reference
 A quick reference for the Elixir programming Language and standard library.
 
 Elixir Website: http://elixir-lang.org/<br>
