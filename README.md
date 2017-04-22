@@ -1316,6 +1316,25 @@ defmodule MyModuleTest do
 end
 ```
 
+### Debugging in the context of a test
+
+1. First add to the top of your test file (before `defmodule`):
+	```elixir
+	require IEx
+	```
+
+2. Inside your test, where you want to break into IEx, add:
+	```
+	IEx.pry
+	```
+
+3. Run your tests with this invocation:
+	```elixir
+	iex -S mix test --trace <test specification>
+	```
+	The `--trace` prevents iex from timing out after you've broken into pry.
+
+
 ## Style Guide
  - Module, record, protocol and behaviour names start with an initial cap and are BumpyCase.
    - Ex: MyModule
