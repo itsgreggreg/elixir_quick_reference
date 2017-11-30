@@ -798,7 +798,7 @@ def ModA do
   import ModB  # All Functions and Macros in ModB
   import ModB, except: [destroy_planet: 1] # All Functions and Macros except destroy_planet/1
   import ModB, only: :functions # All functions, no macros
-  import ModB, only: [say_hi: 0, fibonacci, 1] # Only the specified functions or macros
+  import ModB, only: [say_hi: 0, fibonacci: 1] # Only the specified functions or macros
 end
 ```
  
