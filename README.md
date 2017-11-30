@@ -1205,7 +1205,7 @@ The `~w` and `~W` sigils can take modifier to specify which type of value to cre
 ```elixir
 > ~w|alpha bravo charlie|a   # [:alpha, :bravo, :charlie]
 > ~w|alpha bravo charlie|c   # ['alpha', 'bravo', 'charlie']
-> ~w|alpha bravo charlie|s   # ["alpha, "bravo, "charlie"]
+> ~w|alpha bravo charlie|s   # ["alpha", "bravo", "charlie"]
 ```
 
 You can also define custom Sigils:
